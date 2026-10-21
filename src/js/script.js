@@ -279,3 +279,81 @@ document.querySelector("#btnPrevia").addEventListener('click', function () {
         });
     }, 250);
 });
+
+
+const precos = {
+    "Grimório do HTML": 59.90,
+    "Poções de CSS": 69.90,
+    "JavaScript Encantado": 79.90,
+    "Kit Cristal do Dev": 129.90,
+    "Curso Raiz de Git": 89.90,
+    "E-book: Pull Request Mágico": 39.90
+};
+
+const botoesComprar = document.querySelectorAll(".comprar");
+const lojaLista = document.querySelector("#loja-lista");
+const lojaVazia = document.querySelector("#loja-vazia");
+const lojaTotal = document.querySelector("#loja-total");
+const lojaPainel = document.querySelector("#loja-painel");
+const lojaFundo = document.querySelector("#loja-fundo");
+let total = 0;
+
+function abrirLoja() {
+    lojaPainel.classList.add("aberto");
+    lojaFundo.classList.add("aberto");
+    lojaPainel.setAttribute("aria-hidden", "false");
+}
+
+function fecharLoja() {
+    lojaPainel.classList.remove("aberto");
+    lojaFundo.classList.remove("aberto");
+    lojaPainel.setAttribute("aria-hidden", "true");
+}
+
+document.querySelector("nav img[alt='Carrinho']").addEventListener('click', abrirLoja);
+document.querySelector("#loja-fechar").addEventListener('click', fecharLoja);
+lojaFundo.addEventListener('click', fecharLoja);
+
+botoesComprar.forEach((botao) => {
+    botao.addEventListener('mouseover', () => {
+        if (!botao.classList.contains("no-carrinho")) {
+            botao.textContent = "Levar para o bosque";
+        }
+    });
+
+    botao.addEventListener('mouseout', () => {
+        if (!botao.classList.contains("no-carrinho")) {
+            botao.textContent = "Comprar";
+        }
+    });
+
+    botao.addEventListener('click', () => {
+        if (botao.classList.contains("no-carrinho")) return;
+
+        const nomeProduto = botao.closest(".card").querySelector("h3").textContent;
+        const preco = precos[nomeProduto] || 0;
+
+        botao.classList.add("no-carrinho");
+        botao.textContent = "No carrinho";
+
+        const li = document.createElement("li");
+        li.textContent = nomeProduto + " - R$ " + preco.toFixed(2).replace(".", ",");
+        lojaLista.appendChild(li);
+
+        total = total + preco;
+        lojaTotal.textContent = "R$ " + total.toFixed(2).replace(".", ",");
+        lojaVazia.style.display = "none";
+    });
+});
+
+document.querySelector("#loja-limpar").addEventListener('click', () => {
+    lojaLista.innerHTML = "";
+    total = 0;
+    lojaTotal.textContent = "R$ 0,00";
+    lojaVazia.style.display = "block";
+
+    botoesComprar.forEach((botao) => {
+        botao.classList.remove("no-carrinho");
+        botao.textContent = "Comprar";
+    });
+});

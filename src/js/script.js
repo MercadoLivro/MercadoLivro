@@ -118,3 +118,71 @@ campoNome.addEventListener('input', () => {
 campoNome.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') btnNome.click();
 });
+
+const titulo = document.querySelector(".content-banner h2");
+const tituloOriginal = titulo.innerHTML;                     
+
+function gravarTitulo(texto) {
+    titulo.textContent = "";
+    titulo.setAttribute('aria-label', texto);
+    const palavras = texto.split(" ");
+    let contador = 0;
+
+    for (let p = 0; p < palavras.length; p++) {
+        const palavra = document.createElement('span');
+        palavra.className = 'palavra';
+
+        for (let c = 0; c < palavras[p].length; c++) {
+            const letra = document.createElement('span');
+            letra.className = 'letra';
+            letra.textContent = palavras[p][c];
+            letra.style.animationDelay = (contador * 45) + 'ms';
+            palavra.appendChild(letra);
+            contador++;
+        }
+
+        titulo.appendChild(palavra);
+        titulo.appendChild(document.createTextNode(' '));
+    }
+}
+
+let gravando = false;
+btnNome.addEventListener('click', () => {
+    const nome = campoNome.value.trim();
+    const painel = btnNome.closest('.painel');
+
+    if (gravando) return;
+
+    if (nome === "") {
+        titulo.innerHTML = tituloOriginal;
+        titulo.removeAttribute('aria-label');
+        brilhar(painel, 'Digite um nome para eu anunciar.');
+        return;
+    }
+
+    gravando = true;
+    conjurar(painel, 'cima');
+
+    setTimeout(() => {
+        titulo.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        lancarMagia(painel.querySelector('.gnomo-pequeno'), titulo, 70, 0, '#b794e8', false, () => {
+
+            gravarTitulo('Bem-vindo(a), ' + nome + '!');
+
+            for (let i = 0; i < gemas.children.length; i++) {
+                const gema = gemas.children[i];
+                gema.style.animationDelay = (i * 70) + 'ms';
+                gema.classList.remove('acesa');
+                setTimeout(() => gema.classList.add('acesa'), 10);
+            }
+
+            brilhar(painel, 'Prazer, ' + nome + '! Seu nome foi gravado na caverna.');
+
+            setTimeout(() => {
+                painel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                gravando = false;
+            }, 1800);
+        });
+    }, 250);
+});

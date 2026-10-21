@@ -248,3 +248,34 @@ document.querySelector("#mes").addEventListener('input', function () {
     clearTimeout(tempoPensando);
     tempoPensando = setTimeout(() => painel.classList.remove('pensando'), 1400);
 });
+
+let gerando = false;
+document.querySelector("#btnPrevia").addEventListener('click', function () {
+    const msg = document.querySelector("#msgPrevia");
+    const painel = this.closest('.painel');
+    const area = document.querySelector("#areaPrevia");
+
+    if (gerando) return;
+
+    if (document.querySelector("#imgPrevia")) {
+        msg.textContent = "A prévia já foi gerada!";
+        return;
+    }
+
+    gerando = true;
+    msg.textContent = "";
+    conjurar(painel, 'lado');
+
+    setTimeout(() => {
+        lancarMagia(painel.querySelector('.gnomo-pequeno'), area, 0, -60, '#9bdc8a', true, () => {
+            const img = document.createElement("img");
+            img.id = "imgPrevia";
+            img.src = "src/assets/capa-previa.svg";
+            img.alt = "Prévia da capa do livro";
+            area.appendChild(img);
+
+            gerando = false;
+            brilhar(painel, "Prévia gerada!");
+        });
+    }, 250);
+});

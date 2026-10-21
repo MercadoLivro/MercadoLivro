@@ -186,3 +186,65 @@ btnNome.addEventListener('click', () => {
         });
     }, 250);
 });
+
+const top3 = ["Grimório do HTML", "Poções de CSS", "JavaScript Encantado"];
+const listaTop = document.querySelector("#listaTop");
+
+document.querySelector("#btnTop").addEventListener('click', function () {
+    const livro = document.querySelector("#livroTop").value.trim();
+    const posicao = Number(document.querySelector("#posTop").value);
+
+    if (livro === "" || posicao < 1 || posicao > 3) {
+        alert("Digite o nome do livro e uma posição de 1 a 3.");
+        return;
+    }
+
+    top3[posicao - 1] = livro; 
+
+    listaTop.innerHTML = "";
+    for (let i = 0; i < top3.length; i++) {
+        const li = document.createElement("li");
+        li.textContent = top3[i];
+        listaTop.appendChild(li);
+    }
+
+    brilhar(this.closest('.painel'));
+});
+
+const lancamentos = [
+    "Janeiro: Lógica de Programação Mística",
+    "Fevereiro: HTML para Gnomos Iniciantes",
+    "Março: CSS Floresta Encantada",
+    "Abril: JavaScript das Fadas",
+    "Maio: Git e GitHub Raiz",
+    "Junho: React Cristalino",
+    "Julho: Node.js nas Cavernas",
+    "Agosto: Banco de Dados Subterrâneo",
+    "Setembro: Python da Serpente Sábia",
+    "Outubro: Figma Lunar",
+    "Novembro: Acessibilidade para Todos os Bosques",
+    "Dezembro: Projeto Final do Mago Dev"
+];
+
+document.querySelector("#btnMes").addEventListener('click', function () {
+    const mes = Number(document.querySelector("#mes").value);
+    const saida = document.querySelector("#resultadoMes");
+    const painel = this.closest('.painel');
+
+    painel.classList.remove('pensando');
+
+    if (mes >= 1 && mes <= 12) {
+        saida.textContent = lancamentos[mes - 1];
+        brilhar(painel);
+    } else {
+        saida.textContent = "Escolha um número de 1 a 12.";
+    }
+});
+
+let tempoPensando;
+document.querySelector("#mes").addEventListener('input', function () {
+    const painel = this.closest('.painel');
+    painel.classList.add('pensando');
+    clearTimeout(tempoPensando);
+    tempoPensando = setTimeout(() => painel.classList.remove('pensando'), 1400);
+});

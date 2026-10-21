@@ -112,13 +112,78 @@
 
             <article class="card k-opala">
                 <figure class="boca"><img src="src/assets/gnomo-6.svg" alt="Gnomo guardião de E-book: Pull Request Mágico"></figure>
-                
+
                 <span class="selo">Opala · Merge</span>
                 <h3>E-book: Pull Request Mágico</h3>
                 <p>Do Code Review ao merge, o caminho completo do trabalho em equipe.</p>
                 <button class="comprar">Comprar</button>
+
             </article>
-    
+        </section>
+
+        <img class="divisor" src="src/assets/plantas.svg" alt="">
+
+        <h2 class="titulo-secao">Cantinho dos gnomos</h2>
+        <section class="interativos">
+
+        <div class="painel p-perfil">
+            <i class="cristal c1" aria-hidden="true"></i><i class="cristal c2" aria-hidden="true"></i><i class="cristal c3" aria-hidden="true"></i>
+
+            <div class="halo"><img class="gnomo-pequeno" src="src/assets/gnomo-3.svg" alt="Gnomo recepcionista"></div>
+            <div>
+                <h3>Seu perfil</h3>
+
+                <label class="runa" for="nome"><input type="text" id="nome" placeholder="Digite seu nome" maxlength="18" autocomplete="off"></label>
+
+                <div id="gemas" class="gemas" aria-hidden="true"></div>
+                <button id="btnNome">Gravar na caverna</button>
+                <p id="resultadoNome" class="resultado"></p>
+            </div>
+        </div>
+
+        <div class="painel p-top">
+            <i class="cristal c1" aria-hidden="true"></i><i class="cristal c2" aria-hidden="true"></i><i class="cristal c3" aria-hidden="true"></i>
+            <div class="halo"><img class="gnomo-pequeno" src="src/assets/gnomo-6.svg" alt="Gnomo bibliotecário"></div>
+
+            <div>
+                <h3>Mais vendidos do mês</h3>
+                <input type="text" id="livroTop" placeholder="Nome do livro">
+                <input type="number" id="posTop" min="1" max="3" placeholder="Posição (1 a 3)">
+                <button id="btnTop">Atualizar vitrine</button>
+
+                <ol id="listaTop">
+                    <li>Grimório do HTML</li>
+                    <li>Poções de CSS</li>
+                    <li>JavaScript Encantado</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="painel p-mes">
+            <i class="cristal c1" aria-hidden="true"></i><i class="cristal c2" aria-hidden="true"></i><i class="cristal c3" aria-hidden="true"></i>
+            <div class="halo"><span class="pensar" aria-hidden="true"><i></i><i></i><i></i></span><img class="gnomo-pequeno" src="src/assets/gnomo-4.svg" alt="Gnomo do calendário"></div>
+
+            <div>
+                <h3>Lançamentos</h3>
+                <p class="dica">Digite o número do mês (1 a 12)</p>
+                <input type="number" id="mes" min="1" max="12" placeholder="Ex: 5">
+                <button id="btnMes">Ver lançamento</button>
+                <p id="resultadoMes" class="resultado"></p>
+            </div>
+        </div>
+
+        <div class="painel p-previa">
+            <i class="cristal c1" aria-hidden="true"></i><i class="cristal c2" aria-hidden="true"></i><i class="cristal c3" aria-hidden="true"></i>
+            <div class="halo"><img class="gnomo-pequeno" src="src/assets/gnomo-2.svg" alt="Gnomo do e-reader"></div>
+
+            <div>
+                <h3>Prévia do livro</h3>
+                <button id="btnPrevia">Gerar Prévia do Livro</button>
+                <p id="msgPrevia" class="resultado"></p>
+            </div>
+            <div id="areaPrevia" aria-live="polite"></div>
+        </div>
+
         </section>
     </main>
 

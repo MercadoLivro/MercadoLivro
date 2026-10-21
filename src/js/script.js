@@ -94,3 +94,27 @@ function lancarMagia(de, para, desvioX, desvioY, cor, saiPeloLado, aoTerminar) {
 
     setTimeout(() => luz.remove(), 1500);
 }
+
+const campoNome = document.querySelector("#nome");
+const gemas = document.querySelector("#gemas");
+const btnNome = document.querySelector("#btnNome");
+const tons = ['#b794e8', '#9bdc8a', '#f6e7a8', '#7fe0e6'];
+
+campoNome.addEventListener('input', () => {
+    gemas.innerHTML = "";
+    const letras = campoNome.value.toUpperCase().split("");
+    for (let i = 0; i < letras.length; i++) {
+        const gema = document.createElement('b');
+        gema.style.setProperty('--tom', tons[i % tons.length]);
+        if (letras[i] === " ") {
+            gema.classList.add('esp');
+        } else {
+            gema.textContent = letras[i];
+        }
+        gemas.appendChild(gema);
+    }
+});
+
+campoNome.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') btnNome.click();
+});

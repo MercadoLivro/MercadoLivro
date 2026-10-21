@@ -31,7 +31,23 @@
                 <input type="checkbox" id="dark" class="check">
                 <label for="dark" class="theme-label" title="Alternar tema"><img src="./src/assets/darkMode.png"></label>
             </div>
+
         </nav>
+        <div class="loja-fundo" id="loja-fundo"></div>
+            <aside class="loja-painel" id="loja-painel" aria-label="Sua loja" aria-hidden="true">
+            <div class="loja-topo">
+                <h2>Sua loja</h2>
+                <button type="button" class="loja-fechar" id="loja-fechar" aria-label="Fechar">✕</button>
+            </div>
+
+            <ul class="loja-lista" id="loja-lista"></ul>
+            <p class="loja-vazia" id="loja-vazia">Nenhuma relíquia ainda. Escolha uma e deixe a kunai buscá-la.</p>
+
+            <div class="loja-rodape">
+                <div class="loja-total"><span>Total</span><strong id="loja-total">R$ 0,00</strong></div>
+                <button type="button" class="loja-limpar" id="loja-limpar">Cancelar tudo</button>
+            </div>
+        </aside>
     </header>
     <main>
         <section class="banner">

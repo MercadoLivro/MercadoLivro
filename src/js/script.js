@@ -357,3 +357,34 @@ document.querySelector("#loja-limpar").addEventListener('click', () => {
         botao.textContent = "Comprar";
     });
 });
+
+const imgDestaque = document.querySelector("#img-destaque");
+const cards = document.querySelectorAll(".card");
+
+function mostrarDestaque(card) {
+    const imagem = card.querySelector("img");
+    imgDestaque.src = imagem.src;
+    imgDestaque.alt = imagem.alt;
+}
+
+mostrarDestaque(cards[0]); 
+cards.forEach((card) => {
+    card.addEventListener('mouseover', () => mostrarDestaque(card));
+});
+
+document.querySelector(".pesquisa button").addEventListener('click', () => {
+    const termo = document.querySelector("#pesquisa").value.toLowerCase().trim();
+
+    cards.forEach((card) => {
+        const texto = card.textContent.toLowerCase();
+        if (texto.includes(termo)) {
+            card.style.display = "";
+        } else {
+            card.style.display = "none";
+        }
+    });
+});
+
+const ano = new Date().getFullYear();
+const textoRodape = document.querySelector("footer p");
+textoRodape.innerHTML = textoRodape.innerHTML.replace("&copy;", "&copy; " + ano)

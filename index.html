@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/estilo.css">
+    <title>Mercado Livro</title>
+</head>
+<body>
+    <header>
+        <article>
+            <img src="src/assets/logo.svg" alt="Logotipo MercadoLivro" width="48" height="48">
+            <span>MercadoLivro</span>
+        </article>
+
+        <div class="pesquisa">
+            <input type="text" name="pesquisa" id="pesquisa" placeholder="Busque um livro ou tecnologia">
+            <button type="submit">Buscar</button>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="">Crie sua Conta</a></li>
+                <li><a href="">Entre</a></li>
+                <li><a href="">Compras</a></li>
+            </ul>
+
+            <img src="src/assets/carrinho-carrinho.png" alt="Carrinho">
+
+            <div class="darkMode">
+                <input type="checkbox" id="dark" class="check">
+                <label for="dark" class="theme-label" title="Alternar tema"><img src="./src/assets/darkMode.png"></label>
+            </div>
+
+        </nav>
+        <div class="loja-fundo" id="loja-fundo"></div>
+            <aside class="loja-painel" id="loja-painel" aria-label="Sua loja" aria-hidden="true">
+            <div class="loja-topo">
+                <h2>Sua loja</h2>
+                <button type="button" class="loja-fechar" id="loja-fechar" aria-label="Fechar">✕</button>
+            </div>
+
+            <ul class="loja-lista" id="loja-lista"></ul>
+            <p class="loja-vazia" id="loja-vazia">Nenhuma relíquia ainda. Escolha uma e deixe a kunai buscá-la.</p>
+
+            <div class="loja-rodape">
+                <div class="loja-total"><span>Total</span><strong id="loja-total">R$ 0,00</strong></div>
+                <button type="button" class="loja-limpar" id="loja-limpar">Cancelar tudo</button>
+            </div>
+        </aside>
+    </header>
+    <main>
+        <section class="banner">
+            <article class="content-banner">
+                <h2>Bem-Vindo(a) ao <br> MercadoLivro</h2>
+                <p>Livros, cursos e ferramentas de programaçao, guardados pelos <br> gnomos do bosque</p>
+                <button>Ver a coleção</button>
+            </article>
+    
+            <article class="gnomo1">
+                <img src="src/assets/gnomo1" alt="gnomo1">
+            </article>
+    
+            <article class="gnomo1">
+                <img src="src/assets/gnomo2" alt="gnomo2">
+            </article>
+    
+            <article class="gnomo1">
+                <img src="src/assets/gnomo3" alt="gnomo3">
+            </article>
+        </section>
+    
+        <img class="divisor" src="src/assets/plantas.svg" alt="">
+    
+        <section class="card-destaque">
+            <h2>Produtos em destaque</h2>
+            <article id="destaque">
+                <img id="img-destaque">
+            </article>
+    
+        </section>
+    
+        <section class="card-produtos">
+            <article class="card k-quartzo">
+                <figure class="boca"><img src="src/assets/gnomo-1.svg" alt="Gnomo guardião de Grimório do HTML"></figure>
+
+                <span class="selo">Quartzo · Fundação</span>
+                <h3>Grimório do HTML</h3>
+                <p>Estrutura semântica para quem quer construir páginas sólidas como raízes.</p>
+                <button class="comprar">Comprar</button>
+            </article>
+
+            <article class="card k-agua">
+                <figure class="boca"><img src="src/assets/gnomo-2.svg" alt="Gnomo guardião de Poções de CSS"></figure>
+
+                <span class="selo">Água-marinha · Estilo</span>
+                <h3>Poções de CSS</h3>
+                <p>Flexbox, Grid e Dark Mode em receitas curtas e fáceis de misturar.</p>
+                <button class="comprar">Comprar</button>
+            </article>
+
+            <article class="card k-citrino">
+                <figure class="boca"><img src="src/assets/gnomo-3.svg" alt="Gnomo guardião de JavaScript Encantado"></figure>
+
+                <span class="selo">Citrino · Energia</span>
+                <h3>JavaScript Encantado</h3>
+                <p>DOM e eventos para dar vida a qualquer página parada.</p>
+                <button class="comprar">Comprar</button>
+            </article>
+
+            <article class="card k-esmeralda">
+                <figure class="boca"><img src="src/assets/gnomo-4.svg" alt="Gnomo guardião de Kit Cristal do Dev"></figure>
+
+                <span class="selo">Esmeralda · Ferramentas</span>
+                <h3>Kit Cristal do Dev</h3>
+                <p>Editor, terminal e extensões reunidos em um único kit.</p>
+                <button class="comprar">Comprar</button>
+            </article>
+
+            <article class="card k-ambar">
+                <figure class="boca"><img src="src/assets/gnomo-5.svg" alt="Gnomo guardião de Curso Raiz de Git"></figure>
+
+                <span class="selo">Âmbar · Raízes</span>
+                <h3>Curso Raiz de Git</h3>
+                <p>Branches, commits e Pull Requests sem medo de se perder na floresta.</p>
+                <button class="comprar">Comprar</button>
+            </article>
+
+            <article class="card k-opala">
+                <figure class="boca"><img src="src/assets/gnomo-6.svg" alt="Gnomo guardião de E-book: Pull Request Mágico"></figure>
+
+                <span class="selo">Opala · Merge</span>
+                <h3>E-book: Pull Request Mágico</h3>
+                <p>Do Code Review ao merge, o caminho completo do trabalho em equipe.</p>
+                <button class="comprar">Comprar</button>
+
+            </article>
+        </section>
+
+        <img class="divisor" src="src/assets/plantas.svg" alt="">
+
+        <h2 class="titulo-secao">Cantinho dos gnomos</h2>
+        <section class="interativos">
+
+        <div class="painel p-perfil">
+            <i class="cristal c1" aria-hidden="true"></i><i class="cristal c2" aria-hidden="true"></i><i class="cristal c3" aria-hidden="true"></i>
+
+            <div class="halo"><img class="gnomo-pequeno" src="src/assets/gnomo-3.svg" alt="Gnomo recepcionista"></div>
+            <div>
+                <h3>Seu perfil</h3>
+
+                <label class="runa" for="nome"><input type="text" id="nome" placeholder="Digite seu nome" maxlength="18" autocomplete="off"></label>
+
+                <div id="gemas" class="gemas" aria-hidden="true"></div>
+                <button id="btnNome">Gravar na caverna</button>
+                <p id="resultadoNome" class="resultado"></p>
+            </div>
+        </div>
+
+        <div class="painel p-top">
+            <i class="cristal c1" aria-hidden="true"></i><i class="cristal c2" aria-hidden="true"></i><i class="cristal c3" aria-hidden="true"></i>
+            <div class="halo"><img class="gnomo-pequeno" src="src/assets/gnomo-6.svg" alt="Gnomo bibliotecário"></div>
+
+            <div>
+                <h3>Mais vendidos do mês</h3>
+                <input type="text" id="livroTop" placeholder="Nome do livro">
+                <input type="number" id="posTop" min="1" max="3" placeholder="Posição (1 a 3)">
+                <button id="btnTop">Atualizar vitrine</button>
+
+                <ol id="listaTop">
+                    <li>Grimório do HTML</li>
+                    <li>Poções de CSS</li>
+                    <li>JavaScript Encantado</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="painel p-mes">
+            <i class="cristal c1" aria-hidden="true"></i><i class="cristal c2" aria-hidden="true"></i><i class="cristal c3" aria-hidden="true"></i>
+            <div class="halo"><span class="pensar" aria-hidden="true"><i></i><i></i><i></i></span><img class="gnomo-pequeno" src="src/assets/gnomo-4.svg" alt="Gnomo do calendário"></div>
+
+            <div>
+                <h3>Lançamentos</h3>
+                <p class="dica">Digite o número do mês (1 a 12)</p>
+                <input type="number" id="mes" min="1" max="12" placeholder="Ex: 5">
+                <button id="btnMes">Ver lançamento</button>
+                <p id="resultadoMes" class="resultado"></p>
+            </div>
+        </div>
+
+        <div class="painel p-previa">
+            <i class="cristal c1" aria-hidden="true"></i><i class="cristal c2" aria-hidden="true"></i><i class="cristal c3" aria-hidden="true"></i>
+            <div class="halo"><img class="gnomo-pequeno" src="src/assets/gnomo-2.svg" alt="Gnomo do e-reader"></div>
+
+            <div>
+                <h3>Prévia do livro</h3>
+                <button id="btnPrevia">Gerar Prévia do Livro</button>
+                <p id="msgPrevia" class="resultado"></p>
+            </div>
+            <div id="areaPrevia" aria-live="polite"></div>
+        </div>
+
+        </section>
+    </main>
+
+
+    <section class="style-cogu"></section>
+    <footer>
+        <div class="gnomos">
+            <img src="src/assets/gnomo1" alt="decoração do gnomo">
+            <img src="src/assets/gnomo2" alt="decoração do gnomo">
+            <img src="src/assets/gnomo3" alt="decoração do gnomo">
+        </div>
+
+        <p>&copy; MercadoLivro - A Livraria dos Desenvolvedores. Feito com a ajuda dos gnomos.</p>
+    </footer>
+    <script src="src/js/script.js"></script>
+</body>
+</html>

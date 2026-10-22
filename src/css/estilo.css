@@ -436,3 +436,9 @@ html.light-theme .painel input { background: var(--superficie); }
 .magia { width: 22px; height: 22px; border-radius: 50%; background: radial-gradient(circle, #fff 15%, var(--cor) 55%, transparent 72%); box-shadow: 0 0 18px 6px var(--cor); }
 .rastro { width: 10px; height: 14px; background: var(--cor); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); animation: sumir .55s ease-out forwards; }
 @keyframes sumir { to { opacity: 0; transform: translate(var(--rx), var(--ry)) scale(.2) rotate(120deg); } }
+
+/* ===== Rodapé ===== */
+footer { background: #2a1740; color: #f3ead7; text-align: center; padding: 0 16px 24px; border-top: 4px solid var(--marrom); }
+.gnomos { display: flex; justify-content: center; gap: 8px; margin-top: -60px; flex-wrap: wrap; }
+.gnomos img { height: 110px; }
+footer p { margin-top: 12px; font-size: .9rem; }

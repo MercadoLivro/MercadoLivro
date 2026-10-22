@@ -176,3 +176,16 @@ html.light-theme section.banner > article.gnomo1:hover img { filter: drop-shadow
 html.light-theme .divisor { filter: saturate(1.15) brightness(1.08); }
 .titulo-secao, .card-destaque > h2 { text-align: center; font-size: 1.8rem; margin: 20px 16px; color: var(--texto); }
 html:not(.light-theme) .titulo-secao, html:not(.light-theme) .card-destaque > h2 { color: var(--lua); }
+
+/* ===== Produto em destaque: palco com a imagem do gnomo que está sendo visto ===== */
+.card-destaque { padding: 8px 6vw 40px; }
+#destaque {
+  position: relative; max-width: 420px; margin: 0 auto; padding: 28px 24px 24px; border-radius: 28px;
+  background: radial-gradient(circle at 50% 30%, color-mix(in srgb, var(--lilas) 26%, var(--superficie)), var(--superficie) 70%);
+  border: 3px solid var(--roxo); box-shadow: 0 0 30px #b794e833;
+  display: grid; place-items: center;
+}
+#img-destaque {
+  display: block; width: 100%; max-width: 300px; height: 300px; object-fit: contain;
+  filter: drop-shadow(0 0 14px #b794e8aa); animation: surgir .5s ease-out;
+}

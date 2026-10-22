@@ -189,3 +189,40 @@ html:not(.light-theme) .titulo-secao, html:not(.light-theme) .card-destaque > h2
   display: block; width: 100%; max-width: 300px; height: 300px; object-fit: contain;
   filter: drop-shadow(0 0 14px #b794e8aa); animation: surgir .5s ease-out;
 }
+
+/* ===== Cards: bocas de caverna e gemas ===== */
+.card {
+  --g1: #e6d9ff; --g2: #6b3fa0; --forma: none;
+  position: relative; isolation: isolate; display: flex; flex-direction: column; align-items: center; gap: 10px;
+  padding: 22px 20px 24px; text-align: center;
+  background: linear-gradient(160deg, var(--g1), var(--g2));
+  clip-path: var(--forma); transition: transform .3s, filter .3s;
+}
+.card::before {
+  content: ''; position: absolute; inset: 3px; z-index: -1; border-radius: inherit; clip-path: var(--forma);
+  background: radial-gradient(circle at 50% 0, color-mix(in srgb, var(--g1) 26%, var(--superficie)), var(--superficie) 70%);
+}
+.card:hover { transform: translateY(-6px); filter: brightness(1.08); }
+.k-quartzo   { --g1: #e6d9ff; --g2: #6b3fa0; --forma: polygon(26px 0, calc(100% - 26px) 0, 100% 26px, 100% calc(100% - 26px), calc(100% - 26px) 100%, 26px 100%, 0 calc(100% - 26px), 0 26px); }
+.k-agua      { --g1: #9fefe9; --g2: #1f6f86; border-radius: 34px 34px 70px 70px; }
+.k-citrino   { --g1: #f6e7a8; --g2: #a86a0c; --forma: polygon(0 0, calc(100% - 34px) 0, 100% 34px, 100% 100%, 34px 100%, 0 calc(100% - 34px)); }
+.k-esmeralda { --g1: #9bdc8a; --g2: #2f6b3a; --forma: polygon(40px 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%, 0 40px); }
+.k-ambar     { --g1: #e6c36a; --g2: #6b4a32; border-radius: 60px 14px 60px 14px; }
+.k-opala     { --g1: #f3ead7; --g2: #7a4bb8; --forma: polygon(0 0, 100% 0, 100% 38%, calc(100% - 14px) 46%, 100% 54%, 100% 100%, 0 100%, 0 54%, 14px 46%, 0 38%); }
+.card-produtos .card { border-radius: 0; --forma: polygon(0 0, 100% 0, 100% 38%, calc(100% - 14px) 46%, 100% 54%, 100% 100%, 0 100%, 0 54%, 14px 46%, 0 38%); }
+.card-produtos {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
+  gap: 34px 26px; padding: 8px 6vw 40px; align-items: stretch;
+}
+.card-produtos .card:hover { transform: translateY(-6px); }
+.card-produtos .card[style*="none"] { display: none !important; }
+.card::after {
+  content: ''; position: absolute; inset: 0; z-index: 3; pointer-events: none; opacity: 0;
+  border-radius: inherit; clip-path: var(--forma);
+  background: radial-gradient(circle at 50% 40%, #fff, var(--g1) 80%);
+}
+.card.piscar { animation: card-pisca .65s ease-in-out 4; }
+.card.piscar::after { animation: card-flash .65s ease-in-out 4; }
+@keyframes card-pisca { 0%, 100% { transform: none; } 50% { transform: scale(1.045); } }
+@keyframes card-flash { 0%, 100% { opacity: 0; } 50% { opacity: .75; } }
+.card.no-carrinho { box-shadow: 0 0 0 3px var(--lua) inset; }

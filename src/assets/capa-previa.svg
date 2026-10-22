@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 320" width="240" height="320">
+<rect width="240" height="320" rx="10" fill="#3d2266"/><rect width="14" height="320" fill="#2a1740"/>
+<circle cx="150" cy="90" r="34" fill="#f6e7a8"/><polygon points="120,120 150,170 120,230 90,170" fill="#c9a7ff"/>
+<polygon points="170,190 190,215 170,245 150,215" fill="#9bdc8a"/>
+<path d="M14 290q110-40 226 0v30H14z" fill="#456b34"/>
+<text x="127" y="40" text-anchor="middle" fill="#f3ead7" font-family="Georgia,serif" font-size="20">Grimório do Dev</text>
+<text x="127" y="305" text-anchor="middle" fill="#f3ead7" font-family="Georgia,serif" font-size="12">Edição Gnomo</text></svg>

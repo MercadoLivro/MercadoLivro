@@ -18,3 +18,11 @@ html.light-theme {
   --texto: #2a1740;
   --cabecalho: #6b3fa0;
 }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Nunito', Arial, sans-serif; background: var(--fundo); color: var(--texto);
+  line-height: 1.5; transition: background .3s, color .3s;
+}
+h1, h2, h3, header article span { font-family: 'Uncial Antiqua', Georgia, serif; font-weight: normal; }
+img { max-width: 100%; }

@@ -26,3 +26,36 @@ body {
 }
 h1, h2, h3, header article span { font-family: 'Uncial Antiqua', Georgia, serif; font-weight: normal; }
 img { max-width: 100%; }
+
+/* ===== Cabeçalho ===== */
+header {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 12px 32px; background: var(--cabecalho); color: #f3ead7;
+  border-bottom: 4px solid var(--marrom); transition: background .3s;
+}
+header article { display: flex; align-items: center; gap: 10px; }
+header article span { color: var(--lua); font-size: 1.4rem; }
+.pesquisa { display: flex; flex: 1; min-width: 220px; max-width: 460px; }
+.pesquisa input {
+  flex: 1; padding: 10px 14px; border: 2px solid var(--lilas); border-right: 0;
+  border-radius: 20px 0 0 20px; background: #3d2266; color: #f3ead7; font-family: inherit;
+}
+.pesquisa input::placeholder { color: #c9b6e6; }
+.pesquisa input:focus { outline: none; box-shadow: 0 0 0 3px #b794e880; }
+.pesquisa button {
+  padding: 10px 18px; border: 2px solid var(--lilas); border-radius: 0 20px 20px 0;
+  background: var(--lilas); color: #2a1740; font-weight: 700; cursor: pointer; font-family: inherit;
+}
+.pesquisa button:hover { filter: brightness(1.1); }
+nav { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+nav ul { display: flex; gap: 18px; list-style: none; }
+nav a { color: #f3ead7; text-decoration: none; }
+nav a:hover { color: var(--musgo); }
+nav > img {  /* ícone do carrinho: abre a bolsa */
+  width: 44px; height: 44px; cursor: pointer; transition: transform .25s, filter .25s;
+  filter: drop-shadow(0 0 6px #b794e8aa);
+}
+nav > img:hover { transform: rotate(-8deg) scale(1.1); filter: drop-shadow(0 0 12px #b794e8); }
+nav > img.balanca { animation: balanca .6s ease-out; }
+@keyframes balanca { 0% { transform: none; } 25% { transform: scale(1.22) rotate(-10deg); } 55% { transform: scale(.94) rotate(6deg); } 100% { transform: none; } }

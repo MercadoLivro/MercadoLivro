@@ -355,3 +355,29 @@ html.light-theme .painel input { background: var(--superficie); }
   transition: transform .2s, filter .2s;
 }
 .painel button:hover { filter: brightness(1.25); transform: translateY(-2px); }
+
+/* Gemas do nome */
+.gemas { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 12px; min-height: 4px; }
+.gemas b {
+  display: grid; place-items: center; width: 26px; height: 30px; font-weight: 700; color: #2a1740;
+  background: linear-gradient(160deg, #fff, var(--tom, #b794e8));
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  animation: brotar .5s ease-out both;
+}
+.gemas b.esp { width: 12px; background: none; }
+.gemas b.acesa { animation: acender .7s ease-out; }
+@keyframes brotar { from { transform: translateY(14px) scale(0) rotate(-40deg); filter: brightness(2.2); } to { transform: none; filter: none; } }
+@keyframes acender { 50% { transform: translateY(-6px) scale(1.35); filter: brightness(1.8) drop-shadow(0 0 6px var(--tom)); } }
+
+/* Ranking dos mais vendidos */
+#listaTop { list-style: none; margin: 10px 0 0; counter-reset: rank; }
+#listaTop li {
+  counter-increment: rank; display: flex; align-items: center; gap: 10px;
+  margin-bottom: 6px; padding: 6px 10px; border-left: 4px solid var(--a1); border-radius: 0 12px 12px 0;
+  background: color-mix(in srgb, var(--a1) 18%, transparent);
+}
+#listaTop li::before {
+  content: counter(rank); flex-shrink: 0; width: 26px; height: 28px; display: grid; place-items: center;
+  background: linear-gradient(var(--a1), var(--a2)); color: #fff; font-weight: 700; font-size: .85rem;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}

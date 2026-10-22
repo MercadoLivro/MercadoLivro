@@ -102,3 +102,34 @@ nav > img.balanca { animation: balanca .6s ease-out; }
   color: #f3ead7; font-size: 1rem; cursor: pointer; transition: background .2s;
 }
 .loja-fechar:hover, .loja-fechar:focus-visible { background: var(--roxo); outline: none; }
+
+.loja-vazia {
+  flex: 1; display: flex; align-items: center; justify-content: center; padding: 24px; text-align: center;
+  font-family: 'Uncial Antiqua', Georgia, serif; font-size: 1.1rem; line-height: 1.6;
+}
+.loja-lista { flex: 1; overflow-y: auto; list-style: none; padding: 16px 18px; display: flex; flex-direction: column; gap: 12px; }
+.loja-lista:empty { display: none; }
+.loja-lista li {
+  padding: 10px 14px; font-weight: 700; line-height: 1.3;
+  border-left: 4px solid var(--lilas); border-radius: 0 16px 16px 0;
+  background: color-mix(in srgb, var(--lilas) 16%, transparent);
+  animation: surgir .45s ease-out;
+}
+
+.loja-rodape {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 20px;
+  border-top: 2px solid var(--marrom);
+}
+.loja-total { display: flex; flex-direction: column; font-size: .9rem; }
+.loja-total strong { font-size: 1.2rem; color: var(--lua); }
+html.light-theme .loja-total strong { color: #6b3fa0; }
+.loja-limpar {
+  padding: 10px 24px; border: 0; cursor: pointer; font: 700 .9rem 'Nunito', Arial, sans-serif; color: #fff;
+  background: linear-gradient(135deg, var(--marrom), #3b2a1e); clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
+  transition: filter .2s;
+}
+.loja-limpar:hover { filter: brightness(1.3); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

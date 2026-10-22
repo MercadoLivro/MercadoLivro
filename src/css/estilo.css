@@ -381,3 +381,34 @@ html.light-theme .painel input { background: var(--superficie); }
   background: linear-gradient(var(--a1), var(--a2)); color: #fff; font-weight: 700; font-size: .85rem;
   clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
 }
+
+/* Balão de fala do gnomo */
+.dica { font-size: .9rem; margin-bottom: 8px; padding-right: 34px; }
+.resultado {
+  position: relative; margin-top: 12px; padding: 10px 14px; border-radius: 14px;
+  background: color-mix(in srgb, var(--a1) 24%, var(--superficie));
+  font-size: .9rem; font-weight: 700; color: var(--texto);
+}
+.resultado:empty { display: none; }
+.resultado::before {
+  content: ''; position: absolute; left: 18px; top: -6px; width: 12px; height: 12px;
+  background: inherit; transform: rotate(45deg);
+}
+.resultado.novo { animation: surgir .45s ease-out; }
+@keyframes surgir { from { opacity: 0; transform: translateY(8px) scale(.95); } to { opacity: 1; transform: none; } }
+
+/* Gnomo pensando enquanto digita o mês: bolha de pensamento com três pontos */
+.pensar {
+  position: absolute; right: -6px; top: -4px; z-index: 3; display: flex; gap: 4px; align-items: center;
+  padding: 7px 9px; border-radius: 14px; background: var(--lua); box-shadow: 0 3px 8px #0007;
+  opacity: 0; transform: scale(.5) translateY(6px); transition: opacity .25s, transform .25s;
+}
+.pensar::after {
+  content: ''; position: absolute; left: 8px; bottom: -6px; width: 9px; height: 9px; border-radius: 50%; background: var(--lua);
+}
+.pensar i { width: 6px; height: 6px; border-radius: 50%; background: #6b4a32; animation: ponto 1s ease-in-out infinite; }
+.pensar i:nth-child(2) { animation-delay: .15s; } .pensar i:nth-child(3) { animation-delay: .3s; }
+@keyframes ponto { 0%, 100% { transform: translateY(0); opacity: .4; } 50% { transform: translateY(-4px); opacity: 1; } }
+@keyframes pensando { 0%, 100% { transform: none; } 30% { transform: rotate(-7deg) translateY(-2px); } 65% { transform: rotate(5deg); } }
+.painel.pensando .pensar { opacity: 1; transform: none; }
+.painel.pensando .gnomo-pequeno { animation: pensando 2.2s ease-in-out infinite; }

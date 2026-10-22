@@ -277,3 +277,58 @@ html.light-theme .boca::before { background: linear-gradient(#b794e8, #6b3fa0); 
 }
 .comprar:hover { filter: brightness(1.3); transform: translateY(-2px); }
 .comprar.no-carrinho { background: var(--marrom); }
+
+/* ===== Cantinho dos gnomos ===== */
+.interativos {
+  display: grid; grid-template-columns: minmax(0, min(100%, 620px)); justify-content: center;
+  gap: 36px 28px; padding: 16px 6vw 40px;
+}
+@media (min-width: 1000px) {
+  .interativos { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: none; }
+  .p-top, .p-previa { grid-column: span 2; }
+}
+.painel {
+  --a1: var(--lilas); --a2: var(--roxo);
+  position: relative; isolation: isolate; display: flex; gap: 16px; align-items: flex-start;
+  padding: 34px 28px 28px;
+  background: linear-gradient(135deg, var(--a1), var(--a2));
+  transition: transform .3s, filter .3s;
+}
+.painel::before {
+  content: ''; position: absolute; inset: 3px; z-index: -1;
+  background: radial-gradient(circle at 15% 20%, color-mix(in srgb, var(--a1) 28%, var(--superficie)), var(--superficie) 62%);
+  border-radius: inherit; clip-path: inherit;
+}
+.painel:hover { transform: translateY(-6px) rotate(-.5deg); filter: brightness(1.08); }
+.p-perfil, .p-mes {  /* cristal lapidado */
+  clip-path: polygon(30px 0, calc(100% - 30px) 0, 100% 30px, 100% calc(100% - 30px), calc(100% - 30px) 100%, 30px 100%, 0 calc(100% - 30px), 0 30px);
+}
+.p-perfil { --a1: #b794e8; --a2: #6b3fa0; }
+.p-mes { --a1: #e6c36a; --a2: #6b4a32; }
+.p-top { --a1: #9bdc8a; --a2: #4f7a3a; border-radius: 140px 140px 22px 22px; padding-top: 58px; }
+.p-previa { --a1: #b794e8; --a2: #4f7a3a; border-radius: 46px 110px 46px 110px; align-items: center; }
+
+.cristal {
+  position: absolute; z-index: 1; pointer-events: none; width: 14px; height: 36px;
+  background: linear-gradient(120deg, #fffa, var(--a1) 40%, var(--a2));
+  clip-path: polygon(50% 0, 100% 22%, 100% 78%, 50% 100%, 0 78%, 0 22%);
+  transition: transform .35s, filter .35s;
+}
+.c1 { top: 16px; right: 40px; transform: rotate(14deg); }
+.c2 { top: 28px; right: 20px; width: 10px; height: 24px; transform: rotate(-12deg); }
+.c3 { bottom: 16px; right: 24px; height: 30px; transform: rotate(-8deg); }
+.p-top .c1 { top: 50px; right: 26px; }   .p-top .c2 { top: 66px; right: 12px; }
+.p-mes .c1 { top: 16px; right: 40px; }   .p-mes .c2 { top: 28px; right: 20px; }
+.p-previa .c1 { top: 10px; right: 14px; } .p-previa .c2 { top: 30px; right: 4px; }
+.painel:hover .cristal { transform: translateY(-5px) scale(1.2); filter: brightness(1.35); }
+
+.halo { position: relative; flex-shrink: 0; width: 96px; display: grid; place-items: end center; }
+.halo::before {
+  content: ''; position: absolute; inset: -8px; border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--a1) 55%, transparent), transparent 70%);
+}
+.gnomo-pequeno { position: relative; width: 90px; transform-origin: 50% 100%; }
+.painel:hover .gnomo-pequeno { animation: bailar .9s ease-in-out; }
+.painel.feliz .gnomo-pequeno { animation: pulo .6s ease-out; }
+@keyframes bailar { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-6deg); } 75% { transform: rotate(6deg); } }
+@keyframes pulo { 0% { transform: none; } 40% { transform: translateY(-24px) rotate(-5deg); } 70% { transform: scaleY(.94); } 100% { transform: none; } }

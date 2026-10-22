@@ -332,3 +332,26 @@ html.light-theme .boca::before { background: linear-gradient(#b794e8, #6b3fa0); 
 .painel.feliz .gnomo-pequeno { animation: pulo .6s ease-out; }
 @keyframes bailar { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-6deg); } 75% { transform: rotate(6deg); } }
 @keyframes pulo { 0% { transform: none; } 40% { transform: translateY(-24px) rotate(-5deg); } 70% { transform: scaleY(.94); } 100% { transform: none; } }
+
+.painel > div:not(.halo):not(#areaPrevia) { flex: 1; min-width: 0; }
+.painel h3 { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.painel h3::before {
+  content: ''; width: 12px; height: 20px; flex-shrink: 0;
+  background: linear-gradient(var(--a1), var(--a2));
+  clip-path: polygon(50% 0, 100% 30%, 100% 70%, 50% 100%, 0 70%, 0 30%);
+}
+.painel input {
+  display: block; width: 100%; margin-bottom: 10px; padding: 10px 14px; font-family: inherit;
+  border: 2px solid color-mix(in srgb, var(--a1) 55%, transparent); border-radius: 16px 4px 16px 4px;
+  background: color-mix(in srgb, var(--fundo) 80%, transparent); color: var(--texto);
+  transition: box-shadow .2s, border-color .2s;
+}
+html.light-theme .painel input { background: var(--superficie); }
+.painel input:focus { outline: none; border-color: var(--a1); box-shadow: 0 0 0 4px color-mix(in srgb, var(--a1) 30%, transparent); }
+.painel button {
+  border-radius: 0; padding: 10px 30px; color: #fff; font-weight: 700; border: 0; cursor: pointer; font-family: inherit;
+  background: linear-gradient(135deg, var(--a2), color-mix(in srgb, var(--a2) 65%, #000));
+  clip-path: polygon(14px 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+  transition: transform .2s, filter .2s;
+}
+.painel button:hover { filter: brightness(1.25); transform: translateY(-2px); }

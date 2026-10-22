@@ -442,3 +442,27 @@ footer { background: #2a1740; color: #f3ead7; text-align: center; padding: 0 16p
 .gnomos { display: flex; justify-content: center; gap: 8px; margin-top: -60px; flex-wrap: wrap; }
 .gnomos img { height: 110px; }
 footer p { margin-top: 12px; font-size: .9rem; }
+
+/* ===== Responsivo ===== */
+@media (max-width: 900px) {
+  section.banner > article.gnomo1:nth-of-type(3) { right: -20px; height: 45%; }
+}
+@media (max-width: 700px) {
+  header { padding: 12px 16px; }
+  section.banner { flex-direction: column; align-items: flex-start; }
+  section.banner > article.gnomo1:nth-of-type(2), section.banner > article.gnomo1:nth-of-type(4) { display: none; }
+  nav ul { flex-wrap: wrap; gap: 10px; }
+}
+@media (max-width: 640px) {
+  .p-previa { flex-wrap: wrap; justify-content: center; }
+  .p-previa #areaPrevia { flex: 0 0 auto; width: 100%; }
+}
+@media (max-width: 480px) {
+  .painel { flex-direction: column; align-items: center; }
+  .painel > div:not(.halo):not(#areaPrevia) { width: 100%; }
+  #destaque { padding: 24px 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .susto { transition: none !important; }
+}

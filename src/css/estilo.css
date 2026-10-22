@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Nunito:wght@400;700&display=swap');
+/* ===== Paleta: escuro por padrão; modo claro = html.light-theme (checkbox #dark) ===== */
+:root {
+  --fundo: #1c0f33;
+  --superficie: #2d1a4d;
+  --texto: #f3ead7;
+  --roxo: #6b3fa0;
+  --lilas: #b794e8;
+  --verde: #4f7a3a;
+  --musgo: #9bdc8a;
+  --marrom: #6b4a32;
+  --lua: #f6e7a8;
+  --cabecalho: #2a1740;
+}
+html.light-theme {
+  --fundo: #8a9a5b;
+  --superficie: #ffffff;
+  --texto: #2a1740;
+  --cabecalho: #6b3fa0;
+}

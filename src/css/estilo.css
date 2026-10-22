@@ -78,3 +78,27 @@ nav > img.balanca { animation: balanca .6s ease-out; }
 }
 .check:checked + .theme-label { background: var(--verde); }
 .check:checked + .theme-label::after { transform: translateX(26px); background: var(--lua) var(--lua-icone) center / 16px no-repeat; }
+
+/* ===== Bolsa (carrinho): aba lateral que abre com .aberto ===== */
+.loja-fundo {
+  position: fixed; inset: 0; z-index: 100; background: #150a24b8; opacity: 0; pointer-events: none; transition: opacity .3s;
+}
+.loja-fundo.aberto { opacity: 1; pointer-events: auto; }
+.loja-painel {
+  position: fixed; top: 0; right: 0; z-index: 110; width: min(100%, 390px); height: 100vh; height: 100dvh;
+  display: flex; flex-direction: column;
+  background: radial-gradient(circle at 80% 0, color-mix(in srgb, var(--lilas) 22%, var(--superficie)), var(--superficie) 60%);
+  color: var(--texto); border-left: 4px solid var(--marrom); box-shadow: -10px 0 40px #0009;
+  transform: translateX(105%); visibility: hidden; transition: transform .38s cubic-bezier(.3, .9, .3, 1), visibility 0s .38s;
+}
+.loja-painel.aberto { transform: none; visibility: visible; transition: transform .38s cubic-bezier(.3, .9, .3, 1); }
+.loja-topo {
+  display: flex; align-items: center; justify-content: space-between; padding: 16px 20px;
+  background: #2a1740; color: var(--lua); border-bottom: 4px solid var(--marrom);
+}
+.loja-topo h2 { font-size: 1.3rem; }
+.loja-fechar {
+  width: 38px; height: 38px; border-radius: 50%; border: 2px solid var(--lilas); background: transparent;
+  color: #f3ead7; font-size: 1rem; cursor: pointer; transition: background .2s;
+}
+.loja-fechar:hover, .loja-fechar:focus-visible { background: var(--roxo); outline: none; }

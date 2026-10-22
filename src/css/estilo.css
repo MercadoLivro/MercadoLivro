@@ -170,3 +170,9 @@ section.banner > article.gnomo1:hover img { filter: drop-shadow(0 0 16px var(--l
 html.light-theme section.banner > article.gnomo1 img { filter: drop-shadow(0 8px 10px #6b4a3266); }
 html.light-theme section.banner > article.gnomo1:hover img { filter: drop-shadow(0 0 16px #f6e7a8) brightness(1.08); }
 @keyframes saudar { 0%, 100% { transform: none; } 40% { transform: translateY(-14px) rotate(-3deg); } 70% { transform: translateY(-4px) rotate(2deg); } }
+
+/* Divisórias com folhas e cogumelos */
+.divisor { display: block; width: 100%; height: 70px; margin: 24px 0 0; }
+html.light-theme .divisor { filter: saturate(1.15) brightness(1.08); }
+.titulo-secao, .card-destaque > h2 { text-align: center; font-size: 1.8rem; margin: 20px 16px; color: var(--texto); }
+html:not(.light-theme) .titulo-secao, html:not(.light-theme) .card-destaque > h2 { color: var(--lua); }

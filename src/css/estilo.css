@@ -412,3 +412,27 @@ html.light-theme .painel input { background: var(--superficie); }
 @keyframes pensando { 0%, 100% { transform: none; } 30% { transform: rotate(-7deg) translateY(-2px); } 65% { transform: rotate(5deg); } }
 .painel.pensando .pensar { opacity: 1; transform: none; }
 .painel.pensando .gnomo-pequeno { animation: pensando 2.2s ease-in-out infinite; }
+
+/* Prévia: capa ao lado do botão */
+#areaPrevia {
+  flex: 0 0 170px; min-height: 200px; display: grid; place-items: center;
+  border: 2px dashed color-mix(in srgb, var(--a1) 60%, transparent); border-radius: 8px 18px 8px 18px;
+}
+#areaPrevia:empty::before { content: '✦'; font-size: 2rem; opacity: .35; }
+#imgPrevia { display: block; width: 140px; border-radius: 6px 14px 6px 14px; box-shadow: 0 0 22px color-mix(in srgb, var(--a1) 70%, transparent); animation: surgir .5s ease-out; }
+
+/* Efeitos: faíscas e magias */
+.faisca {
+  position: absolute; left: 72px; top: 100px; width: 9px; height: 14px; z-index: 3; pointer-events: none;
+  background: var(--cor, var(--a1)); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  animation: voar .9s ease-out forwards;
+}
+@keyframes voar { from { opacity: 1; transform: translate(0, 0) scale(1); } to { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(.3) rotate(140deg); } }
+.painel.lanca-cima .gnomo-pequeno { animation: lancaCima .7s ease-out; }
+.painel.lanca-lado .gnomo-pequeno { animation: lancaLado .7s ease-out; }
+@keyframes lancaCima { 0% { transform: none; } 30% { transform: translateY(4px) scaleY(.9); } 55% { transform: translateY(-16px) scaleY(1.12) rotate(-5deg); } 100% { transform: none; } }
+@keyframes lancaLado { 0% { transform: none; } 30% { transform: translateX(-6px) rotate(-10deg); } 55% { transform: translateX(12px) rotate(14deg) scaleX(1.06); } 100% { transform: none; } }
+.magia, .rastro { position: absolute; z-index: 60; pointer-events: none; }
+.magia { width: 22px; height: 22px; border-radius: 50%; background: radial-gradient(circle, #fff 15%, var(--cor) 55%, transparent 72%); box-shadow: 0 0 18px 6px var(--cor); }
+.rastro { width: 10px; height: 14px; background: var(--cor); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); animation: sumir .55s ease-out forwards; }
+@keyframes sumir { to { opacity: 0; transform: translate(var(--rx), var(--ry)) scale(.2) rotate(120deg); } }

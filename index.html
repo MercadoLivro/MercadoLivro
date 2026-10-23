@@ -83,10 +83,107 @@
         <section class="card-destaque">
             <h2>Produtos em destaque</h2>
             <article id="destaque">
-                <img id="img-destaque">
+                <button type="button" class="seta seta-ant" id="SetaAnterior" aria-label="Produto anterior">‹</button>
+
+                <div id="VitrineDestaque">
+                    <article class="card destaque k-quartzo ativo">
+                        <figure class="boca cena pose-cima">
+                            <img class="livro" src="src/assets/capa-html.svg" alt="Capa do livro Grimório do HTML">
+                            <span class="duende">
+                                <span class="corpo">
+                                    <span class="vivo">
+                                        <img class="gnome" src="src/assets/gnomo-1.svg" alt="Gnomo guardião de Grimório do HTML">
+                                        <svg class="extras" viewBox="0 0 200 260" aria-hidden="true">
+                                            <g class="susto">
+                                                <circle cx="88" cy="122" r="5.6" fill="#fff"/>
+                                                <circle cx="112" cy="122" r="5.6" fill="#fff"/>
+                                                <circle cx="88.6" cy="122.6" r="2" fill="#2a1740"/>
+                                                <circle cx="111.4" cy="122.6" r="2" fill="#2a1740"/>
+                                                <ellipse cx="100" cy="146" rx="5.5" ry="7" fill="#3b1a2a"/>
+                                                <path d="M137 124q6 9 0 13q-6-4 0-13z" fill="#9fefe9" stroke="#1f6f86" stroke-width="1.2"/>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </span>
+                                <i class="grito" aria-hidden="true">!</i>
+                            </span>
+                        </figure>
+                        <span class="faixa">★ Destaque</span>
+                        <h3>Grimório do HTML</h3>
+                        <p>Estrutura semântica para quem quer construir páginas sólidas como raízes.</p>
+                        <span class="ver">Ver na coleção ↓</span>
+                    </article>
+
+                    <article class="card destaque k-agua">
+                        <figure class="boca cena pose-apoiado">
+                            <img class="livro" src="src/assets/capa-css.svg" alt="Capa do livro Poções de CSS">
+                            <span class="duende">
+                                <span class="corpo">
+                                    <span class="vivo">
+                                        <img class="gnome" src="src/assets/gnomo-2.svg" alt="Gnomo guardião de Poções de CSS">
+                                        <svg class="extras" viewBox="0 0 200 260" aria-hidden="true">
+                                            <g class="susto">
+                                                <circle cx="88" cy="122" r="5.6" fill="#fff"/>
+                                                <circle cx="112" cy="122" r="5.6" fill="#fff"/>
+                                                <circle cx="88.6" cy="122.6" r="2" fill="#2a1740"/>
+                                                <circle cx="111.4" cy="122.6" r="2" fill="#2a1740"/>
+                                                <ellipse cx="100" cy="146" rx="5.5" ry="7" fill="#3b1a2a"/>
+                                                <path d="M137 124q6 9 0 13q-6-4 0-13z" fill="#9fefe9" stroke="#1f6f86" stroke-width="1.2"/>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </span>
+                                <i class="grito" aria-hidden="true">!</i>
+                            </span>
+                        </figure>
+                        <span class="faixa">★ Destaque</span>
+                        <h3>Poções de CSS</h3>
+                        <p>Flexbox, Grid e Dark Mode em receitas curtas e fáceis de misturar.</p>
+                        <span class="ver">Ver na coleção ↓</span>
+                    </article>
+
+                    <article class="card destaque k-citrino">
+                        <figure class="boca cena pose-lendo">
+                            <img class="livro" src="src/assets/capa-js.svg" alt="Capa do livro JavaScript Encantado">
+                            <span class="duende">
+                                <span class="corpo">
+                                    <span class="vivo">
+                                        <img class="gnome" src="src/assets/gnomo-3.svg" alt="Gnomo guardião de JavaScript Encantado">
+                                        <svg class="extras" viewBox="0 0 200 260" aria-hidden="true">
+                                            <g class="adereco">
+                                                <path d="M54 188V222Q80 214 106 224Q132 214 158 222V188Z" fill="#7a4bb8"/>
+                                                <path d="M106 192Q82 182 58 190V218Q82 211 106 221Z" fill="#f3ead7"/>
+                                                <path d="M106 192Q130 182 154 190V218Q130 211 106 221Z" fill="#e8dcc2"/>
+                                                <path d="M106 192V221" stroke="#0003" stroke-width="2"/>
+                                                <circle cx="62" cy="214" r="8" fill="#e8b89a"/>
+                                                <circle cx="150" cy="214" r="8" fill="#e8b89a"/>
+                                            </g>
+                                            <g class="susto">
+                                                <circle cx="88" cy="122" r="5.6" fill="#fff"/>
+                                                <circle cx="112" cy="122" r="5.6" fill="#fff"/>
+                                                <circle cx="88.6" cy="122.6" r="2" fill="#2a1740"/>
+                                                <circle cx="111.4" cy="122.6" r="2" fill="#2a1740"/>
+                                                <ellipse cx="100" cy="146" rx="5.5" ry="7" fill="#3b1a2a"/>
+                                                <path d="M137 124q6 9 0 13q-6-4 0-13z" fill="#9fefe9" stroke="#1f6f86" stroke-width="1.2"/>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </span>
+                                <i class="grito" aria-hidden="true">!</i>
+                            </span>
+                        </figure>
+                        <span class="faixa">★ Destaque</span>
+                        <h3>JavaScript Encantado</h3>
+                        <p>DOM e eventos para dar vida a qualquer página parada.</p>
+                        <span class="ver">Ver na coleção ↓</span>
+                    </article>
+                </div>
+                <button type="button" class="seta seta-prox" id="SetaProxima" aria-label="Próximo produto">›</button>
             </article>
-    
+            <div class="pontos" id="PontosDestaque"></div>
         </section>
+
+        <img class="divisor" src="src/assets/divisor-figma.svg" alt="">
     
         <section class="card-produtos">
             <article class="card k-quartzo">

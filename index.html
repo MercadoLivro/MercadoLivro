@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="src/css/estilo.css">
     <title>Mercado Livro</title>
 </head>
@@ -18,7 +20,11 @@
             <button type="submit">Buscar</button>
         </div>
 
-        <nav>
+        <button type="button" class="MenuHamburguer" id="MenuHamburguer" aria-label="Abrir menu" aria-expanded="false" aria-controls="Navegacao">
+            <span class="linha"></span><span class="linha"></span><span class="linha"></span>
+        </button>
+
+        <nav id="Navegacao">
             <ul>
                 <li><a href="">Crie sua Conta</a></li>
                 <li><a href="">Entre</a></li>
@@ -29,23 +35,25 @@
 
             <div class="darkMode">
                 <input type="checkbox" id="dark" class="check">
-                <label for="dark" class="theme-label" title="Alternar tema"><img src="./src/assets/darkMode.png"></label>
+                <label for="dark" class="theme-label" title="Alternar tema"></label>
             </div>
 
         </nav>
-        <div class="loja-fundo" id="loja-fundo"></div>
-            <aside class="loja-painel" id="loja-painel" aria-label="Sua loja" aria-hidden="true">
-            <div class="loja-topo">
-                <h2>Sua loja</h2>
-                <button type="button" class="loja-fechar" id="loja-fechar" aria-label="Fechar">✕</button>
+        <div class="cortina" id="loja-fundo"></div>
+        <aside class="aba-carrinho vazio" id="loja-painel" aria-label="Sua bolsa" aria-hidden="true" inert>
+            <div class="aba-topo">
+                <h2>Sua bolsa</h2>
+                <button type="button" class="fechar" id="loja-fechar" aria-label="Fechar">✕</button>
             </div>
-
-            <ul class="loja-lista" id="loja-lista"></ul>
-            <p class="loja-vazia" id="loja-vazia">Nenhuma relíquia ainda. Escolha uma e deixe a kunai buscá-la.</p>
-
-            <div class="loja-rodape">
-                <div class="loja-total"><span>Total</span><strong id="loja-total">R$ 0,00</strong></div>
-                <button type="button" class="loja-limpar" id="loja-limpar">Cancelar tudo</button>
+            <div class="aba-vazia" id="loja-vazia">
+                <img src="src/assets/logo-gnomos.jpg" alt="">
+                <p>Sua bolsa está vazia.</p>
+                <small>Escolha um tesouro e um gnomo leva até aqui.</small>
+            </div>
+            <ul class="lista-carrinho" id="loja-lista"></ul>
+            <div class="aba-rodape">
+                <span>Total <b id="loja-total">R$ 0,00</b></span>
+                <button type="button" id="loja-limpar">Esvaziar bolsa</button>
             </div>
         </aside>
     </header>

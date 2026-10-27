@@ -289,20 +289,70 @@ html.light-theme .boca {
 }
 html.light-theme .boca::before { background: linear-gradient(#b794e8, #6b3fa0); }
 
-/* Susto: no hover o gnomo pula para trás e treme */
-.card:hover .boca img, .card:focus-visible .boca img { animation: susto-pulo .55s cubic-bezier(.3, 1.4, .5, 1); }
+/* Cena: capa do livro + gnomo em pose própria */
+.cena .livro, .cena .duende { position: absolute; }
+.livro {
+  z-index: 3; left: 50%; bottom: calc(10px * var(--s)); height: calc(92px * var(--s)); width: auto;
+  transform: translateX(-50%); border-radius: 3px 8px 8px 3px; box-shadow: 0 8px 14px #000a, inset 4px 0 0 #0003;
+}
+.duende {
+  z-index: 4; left: 50%; bottom: calc(6px * var(--s)); width: calc(86px * var(--s)); height: calc(112px * var(--s));
+  transform: translateX(-50%); transform-origin: 50% 100%;
+}
+.corpo, .vivo { display: block; position: relative; width: 100%; height: 100%; transform-origin: 50% 100%; }
+.gnome { display: block; position: relative; z-index: 1; width: 100%; height: 100%; }
+.extras { position: absolute; inset: 0; z-index: 2; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+
+/* Poses: cada produto tem um gnomo em posição própria */
+.pose-cima .livro { left: 50%; }
+.pose-cima .duende { left: 50%; bottom: calc(103px * var(--s)); }             /* de pé no topo, no meio */
+.pose-apoiado .livro { left: 64%; height: calc(100px * var(--s)); }
+.pose-apoiado .duende { left: 34%; transform: translateX(-50%) rotate(12deg); } /* encostado no livro */
+.pose-lendo .livro { left: 14%; transform: none; height: calc(104px * var(--s)); }
+.pose-lendo .duende { left: 62%; }                                             /* lendo o livro aberto */
+.pose-embaixo .livro { bottom: calc(104px * var(--s)); height: calc(100px * var(--s)); }
+.pose-embaixo .duende { bottom: calc(-14px * var(--s)); z-index: 2; }        /* espia por baixo */
+.pose-espiando .livro { bottom: calc(4px * var(--s)); height: calc(104px * var(--s)); }
+.pose-espiando .duende { z-index: 1; bottom: calc(74px * var(--s)); }        /* espia por cima */
+.pose-deitado .livro { left: 12%; transform: none; height: calc(100px * var(--s)); }
+.pose-deitado .duende { left: 66%; bottom: calc(47px * var(--s)); transform: rotate(-90deg); }
+.pose-deitado .zzz { transform: rotate(90deg); }
+
+/* Susto: rosto muda, pula para trás e treme no hover */
+.susto { opacity: 0; transition: opacity .12s; }
+.grito {
+  position: absolute; z-index: 5; top: calc(-6px * var(--s)); right: calc(-16px * var(--s));
+  font: 900 calc(26px * var(--s))/1 'Uncial Antiqua', Georgia, serif; font-style: normal;
+  color: var(--lua); text-shadow: 0 0 6px #000, 0 0 10px var(--lilas);
+  opacity: 0; transform: scale(.3); transition: opacity .1s, transform .15s;
+}
+.zzz { position: absolute; z-index: 5; left: 60%; top: calc(-6px * var(--s)); display: flex; gap: 2px; }
+.zzz i { font: 700 calc(14px * var(--s))/1 Georgia, serif; font-style: normal; color: var(--lua); animation: zzz 2.4s ease-in-out infinite; }
+.zzz i:nth-child(2) { animation-delay: .8s; font-size: 1.25em; }
+.zzz i:nth-child(3) { animation-delay: 1.6s; font-size: 1.5em; }
+@keyframes zzz { 0% { opacity: 0; transform: translate(0, 0); } 40% { opacity: 1; } 100% { opacity: 0; transform: translate(10px, -18px); } }
+.card:hover .susto, .card:focus-visible .susto { opacity: 1; }
+.card:hover .grito, .card:focus-visible .grito { opacity: 1; transform: scale(1); }
+.card:hover .corpo, .card:focus-visible .corpo { animation: susto-pulo .55s cubic-bezier(.3, 1.4, .5, 1); }
+.card:hover .vivo, .card:focus-visible .vivo { animation: susto-treme .09s linear 6 .3s; }
 @keyframes susto-pulo {
-  0% { transform: translateX(-50%); } 30% { transform: translateX(-50%) translateY(-18px) rotate(-10deg) scaleY(1.06); }
-  60% { transform: translateX(-50%) rotate(4deg) scaleX(.95); } 80% { transform: translateX(-50%) rotate(-2deg); } 100% { transform: translateX(-50%); }
+  0% { transform: none; } 30% { transform: translateY(-18px) rotate(-10deg) scaleY(1.06); }
+  60% { transform: translateY(0) rotate(4deg) scaleX(.95); } 80% { transform: rotate(-2deg); } 100% { transform: none; }
+}
+@keyframes susto-treme {
+  0%, 100% { transform: translateX(0); } 25% { transform: translateX(-3px) rotate(-2deg); } 75% { transform: translateX(3px) rotate(2deg); }
 }
 
 /* Textos dos cards */
-.selo {
-  padding: 3px 14px; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
-  background: var(--lua); color: #2a1740; border-radius: 12px; margin-top: 4px;
-}
 .card h3 { font-size: 1.1rem; }
 .card p { font-size: .95rem; flex: 1; }
+.faixa {
+  padding: 3px 14px; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  background: var(--lua); color: #2a1740; border-radius: 0 0 12px 12px; margin-top: -22px; margin-bottom: 2px;
+  position: relative; z-index: 4;
+}
+.ver { font-weight: 700; font-size: .9rem; color: var(--g2); border-bottom: 2px dashed currentColor; padding-bottom: 1px; }
+html:not(.light-theme) .ver { color: var(--g1); }
 .comprar {
   padding: 11px 36px; border: 0; cursor: pointer; font-family: inherit; font-weight: 700; color: #fff;
   background: linear-gradient(135deg, var(--g2), color-mix(in srgb, var(--g2) 60%, #000));

@@ -177,16 +177,6 @@ html.light-theme .content-banner h2 { text-shadow: 0 2px 10px #fff9; }
   background: var(--lua); color: #2a1740; font-weight: 700;
 }
 .content-banner button:hover { background: var(--musgo); }
-/* Letras do título gravado no nome */
-.palavra { display: inline-block; white-space: nowrap; }
-.letra { display: inline-block; animation: surgir .45s ease-out both; }
-/* As imagens do HTML apontam para gnomo1/2/3 sem extensão; o CSS aponta para os SVGs reais */
-section.banner > article.gnomo1:nth-of-type(2) img { content: url('../assets/gnomo-1.svg'); }
-section.banner > article.gnomo1:nth-of-type(3) img { content: url('../assets/gnomo-2.svg'); }
-section.banner > article.gnomo1:nth-of-type(4) img { content: url('../assets/gnomo-3.svg'); }
-.gnomos img:nth-child(1) { content: url('../assets/gnomo-1.svg'); }
-.gnomos img:nth-child(2) { content: url('../assets/gnomo-2.svg'); }
-.gnomos img:nth-child(3) { content: url('../assets/gnomo-3.svg'); }
 section.banner > article.gnomo1 { position: absolute; bottom: -10px; cursor: pointer; transform-origin: 50% 100%; }
 section.banner > article.gnomo1 img { display: block; width: auto; height: 100%; transition: filter .3s; }
 section.banner > article.gnomo1:nth-of-type(2) { right: 28%; height: 62%; }
@@ -550,3 +540,63 @@ footer p { margin-top: 12px; font-size: .9rem; }
   .susto, .grito { transition: none !important; }
   .card.piscar::after { opacity: .45; }
 }
+
+/* Preço embaixo do nome, dentro da bolsa */
+.lista-carrinho .nome small { display: block; font-weight: 400; font-size: .9rem; color: var(--lua); margin-top: 2px; }
+html.light-theme .lista-carrinho .nome small { color: #6b3fa0; }
+
+/* ===== Menu hambúrguer (só celular): linhas de cristal que viram um X ===== */
+.MenuHamburguer {
+  display: none; position: relative; width: 48px; height: 48px; padding: 0; border: 0; cursor: pointer;
+  background: radial-gradient(circle, #b794e855, transparent 70%); border-radius: 50%;
+  transition: transform .3s;
+}
+.MenuHamburguer .linha {
+  position: absolute; left: 12px; width: 24px; height: 4px; border-radius: 2px;
+  background: linear-gradient(90deg, var(--roxo), var(--lilas) 50%, var(--lua));
+  box-shadow: 0 0 8px #b794e8aa;
+  clip-path: polygon(6px 0, calc(100% - 6px) 0, 100% 50%, calc(100% - 6px) 100%, 6px 100%, 0 50%);
+  transition: transform .4s cubic-bezier(.3, 1.4, .5, 1), opacity .25s, width .3s;
+}
+.MenuHamburguer .linha:nth-child(1) { top: 14px; animation: brilho 2.6s ease-in-out infinite; }
+.MenuHamburguer .linha:nth-child(2) { top: 22px; width: 16px; left: 16px; animation: brilho 2.6s ease-in-out .4s infinite; }
+.MenuHamburguer .linha:nth-child(3) { top: 30px; animation: brilho 2.6s ease-in-out .8s infinite; }
+@keyframes brilho { 0%, 100% { filter: brightness(1); } 50% { filter: brightness(1.6) drop-shadow(0 0 4px var(--lua)); } }
+.MenuHamburguer:hover { transform: rotate(-12deg) scale(1.08); }
+.MenuHamburguer:hover .linha:nth-child(2) { width: 24px; left: 12px; }
+.MenuHamburguer[aria-expanded="true"] .linha:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.MenuHamburguer[aria-expanded="true"] .linha:nth-child(2) { opacity: 0; transform: scaleX(.2); }
+.MenuHamburguer[aria-expanded="true"] .linha:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+.MenuHamburguer:focus-visible { outline: 3px solid var(--lua); outline-offset: 3px; }
+
+@media (max-width: 700px) {
+  .MenuHamburguer { display: block; margin-left: auto; }
+  nav {
+    display: none; position: absolute; left: 0; right: 0; top: 100%; z-index: 60;
+    flex-direction: column; align-items: stretch; gap: 14px; padding: 18px 22px 22px;
+    background: var(--cabecalho); border-bottom: 4px solid var(--lilas);
+    box-shadow: 0 16px 30px #0009; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  header.menu-aberto nav { display: flex; animation: descer .45s cubic-bezier(.3, 1.2, .5, 1); }
+  nav ul { flex-direction: column; gap: 12px; }
+  nav ul li { opacity: 0; animation: entrar .4s ease-out forwards; }
+  nav ul li:nth-child(2) { animation-delay: .08s; }
+  nav ul li:nth-child(3) { animation-delay: .16s; }
+  nav ul a { display: block; padding: 8px 12px; border-left: 4px solid var(--lilas); border-radius: 0 12px 12px 0; background: #ffffff10; font-weight: 700; }
+  nav > img { align-self: center; }
+  .darkMode { justify-content: center; }
+}
+@keyframes descer { from { opacity: 0; transform: translateY(-14px) scaleY(.7); transform-origin: top; } to { opacity: 1; transform: none; } }
+@keyframes entrar { from { opacity: 0; transform: translateX(-16px); } to { opacity: 1; transform: none; } }
+
+
+/* ===== Utilitários do JS (título animado do banner) ===== */
+
+/* Letras do título gravado no nome */
+.palavra { display: inline-block; white-space: nowrap; }
+.letra { display: inline-block; animation: surgir .45s ease-out both; }
+
+/* Rodapé: o HTML aponta para src/assets/gnomo1, gnomo2 e gnomo3 (sem extensão); o CSS troca pelos SVGs reais */
+.gnomos img:nth-child(1) { content: url("../assets/gnomo-1.svg"); }
+.gnomos img:nth-child(2) { content: url("../assets/gnomo-2.svg"); }
+.gnomos img:nth-child(3) { content: url("../assets/gnomo-3.svg"); }

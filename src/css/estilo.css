@@ -547,5 +547,6 @@ footer p { margin-top: 12px; font-size: .9rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
-  .susto { transition: none !important; }
+  .susto, .grito { transition: none !important; }
+  .card.piscar::after { opacity: .45; }
 }

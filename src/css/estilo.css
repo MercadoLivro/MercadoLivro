@@ -102,14 +102,17 @@ nav > img:hover { transform: rotate(-8deg) scale(1.1); filter: drop-shadow(0 0 1
 }
 .fechar:hover, .fechar:focus-visible { background: var(--roxo); outline: none; }
 
-.loja-vazia {
-  flex: 1; display: flex; align-items: center; justify-content: center; padding: 24px; text-align: center;
-  font-family: 'Uncial Antiqua', Georgia, serif; font-size: 1.1rem; line-height: 1.6;
-}
-.loja-lista { flex: 1; overflow-y: auto; list-style: none; padding: 16px 18px; display: flex; flex-direction: column; gap: 12px; }
-.loja-lista:empty { display: none; }
-.loja-lista li {
-  padding: 10px 14px; font-weight: 700; line-height: 1.3;
+.aba-vazia { display: none; flex: 1; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 24px; text-align: center; }
+.aba-vazia img { width: 230px; max-width: 80%; }
+.aba-vazia p { font-family: 'Uncial Antiqua', Georgia, serif; font-size: 1.15rem; }
+.aba-vazia small { opacity: .8; }
+#loja-painel.vazio .aba-vazia { display: flex; }
+#loja-painel.vazio .lista-carrinho { display: none; }
+#loja-painel.vazio #loja-vazia { display: flex !important; } /* vence o style inline do JS */
+
+.lista-carrinho { flex: 1; overflow-y: auto; list-style: none; padding: 16px 18px; display: flex; flex-direction: column; gap: 12px; }
+.lista-carrinho li {
+  display: flex; align-items: center; gap: 12px; padding: 8px 10px 8px 8px;
   border-left: 4px solid var(--lilas); border-radius: 0 16px 16px 0;
   background: color-mix(in srgb, var(--lilas) 16%, transparent);
 }

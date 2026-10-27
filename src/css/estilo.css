@@ -497,15 +497,14 @@ html.light-theme .painel input { background: var(--superficie); }
 .painel.pensando .pensar { opacity: 1; transform: none; }
 .painel.pensando .gnomo-pequeno { animation: pensando 2.2s ease-in-out infinite; }
 
-/* Prévia: capa ao lado do botão */
 #areaPrevia {
   flex: 0 0 170px; min-height: 200px; display: grid; place-items: center;
   border: 2px dashed color-mix(in srgb, var(--a1) 60%, transparent); border-radius: 8px 18px 8px 18px;
 }
 #areaPrevia:empty::before { content: '✦'; font-size: 2rem; opacity: .35; }
-#imgPrevia { display: block; width: 140px; border-radius: 6px 14px 6px 14px; box-shadow: 0 0 22px color-mix(in srgb, var(--a1) 70%, transparent); animation: surgir .5s ease-out; }
+#areaPrevia img { display: block; width: 140px; border-radius: 6px 14px 6px 14px; box-shadow: 0 0 22px color-mix(in srgb, var(--a1) 70%, transparent); animation: surgir .5s ease-out; }
 
-/* Efeitos: faíscas e magias */
+/* Efeitos: faíscas, magias e gnomo carregando o card */
 .faisca {
   position: absolute; left: 72px; top: 100px; width: 9px; height: 14px; z-index: 3; pointer-events: none;
   background: var(--cor, var(--a1)); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
@@ -544,7 +543,7 @@ footer p { margin-top: 12px; font-size: .9rem; }
 @media (max-width: 480px) {
   .painel { flex-direction: column; align-items: center; }
   .painel > div:not(.halo):not(#areaPrevia) { width: 100%; }
-  #destaque { padding: 24px 16px; }
+  #destaque { padding: 0 44px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }

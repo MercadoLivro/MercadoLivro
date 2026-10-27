@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Nunito:wght@400;700&display=swap');
 /* ===== Paleta: escuro por padrão; modo claro = html.light-theme (checkbox #dark) ===== */
 :root {
   --fundo: #1c0f33;
@@ -11,6 +10,7 @@
   --marrom: #6b4a32;
   --lua: #f6e7a8;
   --cabecalho: #2a1740;
+  --borda: var(--marrom);
 }
 html.light-theme {
   --fundo: #8a9a5b;
@@ -52,25 +52,22 @@ nav { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
 nav ul { display: flex; gap: 18px; list-style: none; }
 nav a { color: #f3ead7; text-decoration: none; }
 nav a:hover { color: var(--musgo); }
-nav > img {  /* ícone do carrinho: abre a bolsa */
+nav > img {  /* ícone do carrinho: abre a loja */
   width: 44px; height: 44px; cursor: pointer; transition: transform .25s, filter .25s;
   filter: drop-shadow(0 0 6px #b794e8aa);
 }
 nav > img:hover { transform: rotate(-8deg) scale(1.1); filter: drop-shadow(0 0 12px #b794e8); }
-nav > img.balanca { animation: balanca .6s ease-out; }
-@keyframes balanca { 0% { transform: none; } 25% { transform: scale(1.22) rotate(-10deg); } 55% { transform: scale(.94) rotate(6deg); } 100% { transform: none; } }
-
-/* Botão de tema (chave com sol e lua) */
-.darkMode { display: flex; align-items: center; }
-.check { display: none; }
+/* Botão de tema (chave com sol e lua): o checkbox fica oculto, mas focável */
+.darkMode { display: flex; align-items: center; position: relative; }
+.check { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+.check:focus-visible + .theme-label { outline: 3px solid var(--lua); outline-offset: 3px; }
 .theme-label {
   display: block; width: 52px; height: 26px; border-radius: 26px;
   background: var(--lilas); position: relative; cursor: pointer;
 }
-.theme-label img { display: none; }
 .theme-label {
-  --sol: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpolygon%20points%3D%2223.00%2C12.00%2018.05%2C13.35%2018.05%2C10.65%22%20fill%3D%22%23c98a14%22%2F%3E%3Cpolygon%20points%3D%2219.78%2C19.78%2015.32%2C17.24%2017.24%2C15.32%22%20fill%3D%22%23c98a14%22%2F%3E%3Cpolygon%20points%3D%2212.00%2C23.00%2010.65%2C18.05%2013.35%2C18.05%22%20fill%3D%22%23c98a14%22%2F%3E%3Cpolygon%20points%3D%224.22%2C19.78%206.76%2C15.32%208.68%2C17.24%22%20fill%3D%22%23c98a14%22%2F%3E%3Cpolygon%20points%3D%221.00%2C12.00%205.95%2C10.65%205.95%2C13.35%22%20fill%3D%22%23c98a14%22%2F%3E%3Cpolygon%20points%3D%224.22%2C4.22%208.68%2C6.76%206.76%2C8.68%22%20fill%3D%22%23c98a14%22%2F%3E%3Cpolygon%20points%3D%2212.00%2C1.00%2013.35%2C5.95%2010.65%2C5.95%22%20fill%3D%22%23c98a14%22%2F%3E%3Cpolygon%20points%3D%2219.78%2C4.22%2017.24%2C8.68%2015.32%2C6.76%22%20fill%3D%22%23c98a14%22%2F%3E%3Cpolygon%20points%3D%2212%2C6%2017%2C9%2017%2C15%2012%2C18%207%2C15%207%2C9%22%20fill%3D%22%23f6c94a%22%20stroke%3D%22%23a86a0c%22%20stroke-width%3D%221%22%2F%3E%3Cpolygon%20points%3D%2212%2C6%2017%2C9%2012%2C11%207%2C9%22%20fill%3D%22%23fff8d6%22%20opacity%3D%22.8%22%2F%3E%3C%2Fsvg%3E");
-  --lua-icone: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M15.5%203.5A9%209%200%201%200%2020.5%2016.5%207.2%207.2%200%200%201%2015.5%203.5Z%22%20fill%3D%22%236b3fa0%22%20stroke%3D%22%233d2266%22%20stroke-width%3D%22.8%22%20stroke-linejoin%3D%22round%22%2F%3E%3Cpath%20d%3D%22M8%208.5%209.1%2010.6%2011.2%2011.7%209.1%2012.8%208%2014.9%206.9%2012.8%204.8%2011.7%206.9%2010.6Z%22%20fill%3D%22%23b794e8%22%2F%3E%3C%2Fsvg%3E");
+  --sol: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpolygon%20points%3D%2223.00%2C12.00%2018.05%2C13.35%2018.05%2C10.65%22%20fill%3D%22%23c98a14%22%2F%3E%3Cpolygon%20points%3D%2219.78%2C19.78%2015.32%2C17.24%2017.24%2C15.32%22%20fill%3D%22%23c98a14%22%2F%3E%3Cpolygon%20points%3D%2212.00%2C23.00%2010.65%2C18.05%2013.35%2C18.05%22%20fill%3D%22%23c98a14%22%2F%3E%3Cpolygon%20points%3D%224.22%2C19.78%206.76%2C15.32%208.68%2C17.24%22%20fill%3D%22%23c98a14%22%2F%3E%3Cpolygon%20points%3D%221.00%2C12.00%205.95%2C10.65%205.95%2C13.35%22%20fill%3D%22%23c98a14%22%2F%3E%3Cpolygon%20points%3D%224.22%2C4.22%208.68%2C6.76%206.76%2C8.68%22%20fill%3D%22%23c98a14%22%2F%3E%3Cpolygon%20points%3D%2212.00%2C1.00%2013.35%2C5.95%2010.65%2C5.95%22%20fill%3D%22%23c98a14%22%2F%3E%3Cpolygon%20points%3D%2219.78%2C4.22%2017.24%2C8.68%2015.32%2C6.76%22%20fill%3D%22%23c98a14%22%2F%3E%3Cpolygon%20points%3D%2212%2C6%2017%2C9%2017%2C15%2012%2C18%207%2C15%207%2C9%22%20fill%3D%22%23f6c94a%22%20stroke%3D%22%23a86a0c%22%20stroke-width%3D%221%22%2F%3E%3Cpolygon%20points%3D%2212%2C6%2017%2C9%2012%2C11%207%2C9%22%20fill%3D%22%23fff8d6%22%20opacity%3D%22.8%22%2F%3E%3C%2Fsvg%3E");     /* sol de cristal (modo claro) */
+  --lua-icone: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M15.5%203.5A9%209%200%201%200%2020.5%2016.5%207.2%207.2%200%200%201%2015.5%203.5Z%22%20fill%3D%22%236b3fa0%22%20stroke%3D%22%233d2266%22%20stroke-width%3D%22.8%22%20stroke-linejoin%3D%22round%22%2F%3E%3Cpath%20d%3D%22M8%208.5%209.1%2010.6%2011.2%2011.7%209.1%2012.8%208%2014.9%206.9%2012.8%204.8%2011.7%206.9%2010.6Z%22%20fill%3D%22%23b794e8%22%2F%3E%3C%2Fsvg%3E");  /* lua de cristal (modo escuro) */
 }
 .theme-label::after {
   content: ''; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px;
@@ -79,60 +76,90 @@ nav > img.balanca { animation: balanca .6s ease-out; }
 .check:checked + .theme-label { background: var(--verde); }
 .check:checked + .theme-label::after { transform: translateX(26px); background: var(--lua) var(--lua-icone) center / 16px no-repeat; }
 
-/* ===== Bolsa (carrinho): aba lateral que abre com .aberto ===== */
-.loja-fundo {
+
+/* ===== Bolsa (carrinho): aba lateral ===== */
+#loja-fundo {
   position: fixed; inset: 0; z-index: 100; background: #150a24b8; opacity: 0; pointer-events: none; transition: opacity .3s;
 }
-.loja-fundo.aberto { opacity: 1; pointer-events: auto; }
-.loja-painel {
+#loja-fundo.visivel { opacity: 1; pointer-events: auto; }
+#loja-painel {
   position: fixed; top: 0; right: 0; z-index: 110; width: min(100%, 390px); height: 100vh; height: 100dvh;
   display: flex; flex-direction: column;
   background: radial-gradient(circle at 80% 0, color-mix(in srgb, var(--lilas) 22%, var(--superficie)), var(--superficie) 60%);
   color: var(--texto); border-left: 4px solid var(--marrom); box-shadow: -10px 0 40px #0009;
   transform: translateX(105%); visibility: hidden; transition: transform .38s cubic-bezier(.3, .9, .3, 1), visibility 0s .38s;
 }
-.loja-painel.aberto { transform: none; visibility: visible; transition: transform .38s cubic-bezier(.3, .9, .3, 1); }
-.loja-topo {
+#loja-painel.aberta { transform: none; visibility: visible; transition: transform .38s cubic-bezier(.3, .9, .3, 1); }
+.aba-topo {
   display: flex; align-items: center; justify-content: space-between; padding: 16px 20px;
   background: #2a1740; color: var(--lua); border-bottom: 4px solid var(--marrom);
 }
-.loja-topo h2 { font-size: 1.3rem; }
-.loja-fechar {
+.aba-topo h2 { display: flex; align-items: center; gap: 10px; font-size: 1.3rem; }
+.aba-topo h2 svg { width: 38px; height: 38px; }
+.fechar {
   width: 38px; height: 38px; border-radius: 50%; border: 2px solid var(--lilas); background: transparent;
   color: #f3ead7; font-size: 1rem; cursor: pointer; transition: background .2s;
 }
-.loja-fechar:hover, .loja-fechar:focus-visible { background: var(--roxo); outline: none; }
+.fechar:hover, .fechar:focus-visible { background: var(--roxo); outline: none; }
 
-.loja-vazia {
-  flex: 1; display: flex; align-items: center; justify-content: center; padding: 24px; text-align: center;
-  font-family: 'Uncial Antiqua', Georgia, serif; font-size: 1.1rem; line-height: 1.6;
-}
-.loja-lista { flex: 1; overflow-y: auto; list-style: none; padding: 16px 18px; display: flex; flex-direction: column; gap: 12px; }
-.loja-lista:empty { display: none; }
-.loja-lista li {
-  padding: 10px 14px; font-weight: 700; line-height: 1.3;
+.aba-vazia { display: none; flex: 1; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 24px; text-align: center; }
+.aba-vazia img { width: 230px; max-width: 80%; }
+.aba-vazia p { font-family: 'Uncial Antiqua', Georgia, serif; font-size: 1.15rem; }
+.aba-vazia small { opacity: .8; }
+#loja-painel.vazio .aba-vazia { display: flex; }
+#loja-painel.vazio .lista-carrinho { display: none; }
+#loja-painel.vazio #loja-vazia { display: flex !important; } /* vence o style inline do JS */
+
+.lista-carrinho { flex: 1; overflow-y: auto; list-style: none; padding: 16px 18px; display: flex; flex-direction: column; gap: 12px; }
+.lista-carrinho li {
+  display: flex; align-items: center; gap: 12px; padding: 8px 10px 8px 8px;
   border-left: 4px solid var(--lilas); border-radius: 0 16px 16px 0;
   background: color-mix(in srgb, var(--lilas) 16%, transparent);
-  animation: surgir .45s ease-out;
 }
+.lista-carrinho li.novo { animation: surgir .45s ease-out; }
+.mini-boca {
+  flex-shrink: 0; width: 56px; height: 68px; display: grid; place-items: end center; overflow: hidden;
+  border-radius: 999px 999px 8px 8px; border: 2px solid var(--roxo);
+  background: linear-gradient(#08030f, #2a1740 85%);
+}
+.mini-boca img { height: 56px; margin-bottom: 2px; }
+.lista-carrinho .nome { flex: 1; min-width: 0; font-weight: 700; line-height: 1.25; }
+.remover {
+  width: 30px; height: 30px; flex-shrink: 0; border: 0; border-radius: 50%; cursor: pointer;
+  background: color-mix(in srgb, var(--marrom) 70%, transparent); color: #fff; transition: transform .2s, background .2s;
+}
+.remover:hover, .remover:focus-visible { background: #a33; transform: rotate(90deg); outline: none; }
 
-.loja-rodape {
+.aba-rodape {
   display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 20px;
-  border-top: 2px solid var(--marrom);
+  border-top: 2px solid var(--borda);
 }
-.loja-total { display: flex; flex-direction: column; font-size: .9rem; }
-.loja-total strong { font-size: 1.2rem; color: var(--lua); }
-html.light-theme .loja-total strong { color: #6b3fa0; }
-.loja-limpar {
+.aba-rodape button {
   padding: 10px 24px; border: 0; cursor: pointer; font: 700 .9rem 'Nunito', Arial, sans-serif; color: #fff;
   background: linear-gradient(135deg, var(--marrom), #3b2a1e); clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
   transition: filter .2s;
 }
-.loja-limpar:hover { filter: brightness(1.3); }
+.aba-rodape button:hover:not(:disabled) { filter: brightness(1.3); }
+.aba-rodape button:disabled { opacity: .45; cursor: default; }
 
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; }
-}
+/* ===== Gnomo 7: pega o card e leva até o carrinho ===== */
+.gnomo-carregador { position: fixed; left: 0; top: 0; z-index: 200; pointer-events: none; transform-origin: 50% 100%; }
+.gnomo-carregador img { display: block; width: 100%; height: 100%; transform-origin: 50% 100%; }
+.gnomo-carregador.correndo img { animation: corre .3s ease-in-out infinite; }
+@keyframes corre { 0%, 100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(-9px) rotate(4deg); } }
+.gnomo-carregador.pega img { animation: pega .45s ease-out; }
+@keyframes pega { 0% { transform: none; } 35% { transform: translateY(6px) scaleY(.88); } 70% { transform: translateY(-14px) scaleY(1.08); } 100% { transform: none; } }
+.clone-voo { box-shadow: none; }
+.card.levando { opacity: .4; transition: opacity .3s; }
+.faisca.fixa { position: fixed; left: 0; top: 0; z-index: 210; }
+
+
+
+/* Preço do livro (aleatório) e balanço do ícone da bolsa */
+.preco { font-weight: 700; color: var(--g2); font-size: .95rem; }
+html:not(.light-theme) .preco { color: var(--g1); }
+nav > img.balanca { animation: balanca .6s ease-out; }
+@keyframes balanca { 0% { transform: none; } 25% { transform: scale(1.22) rotate(-10deg); } 55% { transform: scale(.94) rotate(6deg); } 100% { transform: none; } }
 
 /* ===== Banner (noturno no escuro, de dia no claro) ===== */
 section.banner {
@@ -150,16 +177,6 @@ html.light-theme .content-banner h2 { text-shadow: 0 2px 10px #fff9; }
   background: var(--lua); color: #2a1740; font-weight: 700;
 }
 .content-banner button:hover { background: var(--musgo); }
-/* Letras do título gravado no nome */
-.palavra { display: inline-block; white-space: nowrap; }
-.letra { display: inline-block; animation: surgir .45s ease-out both; }
-/* As imagens do HTML apontam para gnomo1/2/3 sem extensão; o CSS aponta para os SVGs reais */
-section.banner > article.gnomo1:nth-of-type(2) img { content: url('../assets/gnomo-1.svg'); }
-section.banner > article.gnomo1:nth-of-type(3) img { content: url('../assets/gnomo-2.svg'); }
-section.banner > article.gnomo1:nth-of-type(4) img { content: url('../assets/gnomo-3.svg'); }
-.gnomos img:nth-child(1) { content: url('../assets/gnomo-1.svg'); }
-.gnomos img:nth-child(2) { content: url('../assets/gnomo-2.svg'); }
-.gnomos img:nth-child(3) { content: url('../assets/gnomo-3.svg'); }
 section.banner > article.gnomo1 { position: absolute; bottom: -10px; cursor: pointer; transform-origin: 50% 100%; }
 section.banner > article.gnomo1 img { display: block; width: auto; height: 100%; transition: filter .3s; }
 section.banner > article.gnomo1:nth-of-type(2) { right: 28%; height: 62%; }
@@ -171,24 +188,37 @@ html.light-theme section.banner > article.gnomo1 img { filter: drop-shadow(0 8px
 html.light-theme section.banner > article.gnomo1:hover img { filter: drop-shadow(0 0 16px #f6e7a8) brightness(1.08); }
 @keyframes saudar { 0%, 100% { transform: none; } 40% { transform: translateY(-14px) rotate(-3deg); } 70% { transform: translateY(-4px) rotate(2deg); } }
 
-/* Divisórias com folhas e cogumelos */
 .divisor { display: block; width: 100%; height: 70px; margin: 24px 0 0; }
 html.light-theme .divisor { filter: saturate(1.15) brightness(1.08); }
 .titulo-secao, .card-destaque > h2 { text-align: center; font-size: 1.8rem; margin: 20px 16px; color: var(--texto); }
 html:not(.light-theme) .titulo-secao, html:not(.light-theme) .card-destaque > h2 { color: var(--lua); }
 
-/* ===== Produto em destaque: palco com a imagem do gnomo que está sendo visto ===== */
+/* ===== Produtos em destaque: um card por vez, trocando sozinho ===== */
 .card-destaque { padding: 8px 6vw 40px; }
-#destaque {
-  position: relative; max-width: 420px; margin: 0 auto; padding: 28px 24px 24px; border-radius: 28px;
-  background: radial-gradient(circle at 50% 30%, color-mix(in srgb, var(--lilas) 26%, var(--superficie)), var(--superficie) 70%);
-  border: 3px solid var(--roxo); box-shadow: 0 0 30px #b794e833;
-  display: grid; place-items: center;
+#destaque { position: relative; max-width: 520px; margin: 0 auto; padding: 0 52px; }
+#VitrineDestaque { position: relative; min-height: 440px; }
+#VitrineDestaque .destaque { display: none; cursor: pointer; width: 100%; }
+#VitrineDestaque .destaque.ativo { display: flex; animation: surgirSlide .6s ease-out; }
+@keyframes surgirSlide { from { opacity: 0; transform: translateY(12px) scale(.97); } to { opacity: 1; transform: none; } }
+.seta {
+  position: absolute; top: 45%; z-index: 5; transform: translateY(-50%);
+  width: 42px; height: 42px; padding: 0 0 3px; border: 0; cursor: pointer;
+  font: 700 1.6rem/1 Georgia, serif; color: var(--lua);
+  background: linear-gradient(135deg, var(--roxo), #3d2266);
+  clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+  transition: filter .2s;
 }
-#img-destaque {
-  display: block; width: 100%; max-width: 300px; height: 300px; object-fit: contain;
-  filter: drop-shadow(0 0 14px #b794e8aa); animation: surgir .5s ease-out;
+.seta:hover { filter: brightness(1.3); }
+.seta-ant { left: 0; }
+.seta-prox { right: 0; }
+.pontos { display: flex; justify-content: center; gap: 12px; margin-top: 10px; }
+.pontos button {
+  width: 13px; height: 13px; padding: 0; border: 0; cursor: pointer;
+  background: var(--lilas); opacity: .35; clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  transition: opacity .2s, transform .2s;
 }
+.pontos button[aria-current="true"] { opacity: 1; transform: scale(1.3); background: var(--roxo); }
+html:not(.light-theme) .pontos button[aria-current="true"] { background: var(--lua); }
 
 /* ===== Cards: bocas de caverna e gemas ===== */
 .card {
@@ -209,7 +239,6 @@ html:not(.light-theme) .titulo-secao, html:not(.light-theme) .card-destaque > h2
 .k-esmeralda { --g1: #9bdc8a; --g2: #2f6b3a; --forma: polygon(40px 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%, 0 40px); }
 .k-ambar     { --g1: #e6c36a; --g2: #6b4a32; border-radius: 60px 14px 60px 14px; }
 .k-opala     { --g1: #f3ead7; --g2: #7a4bb8; --forma: polygon(0 0, 100% 0, 100% 38%, calc(100% - 14px) 46%, 100% 54%, 100% 100%, 0 100%, 0 54%, 14px 46%, 0 38%); }
-.card-produtos .card { border-radius: 0; --forma: polygon(0 0, 100% 0, 100% 38%, calc(100% - 14px) 46%, 100% 54%, 100% 100%, 0 100%, 0 54%, 14px 46%, 0 38%); }
 .card-produtos {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
   gap: 34px 26px; padding: 8px 6vw 40px; align-items: stretch;
@@ -225,11 +254,9 @@ html:not(.light-theme) .titulo-secao, html:not(.light-theme) .card-destaque > h2
 .card.piscar::after { animation: card-flash .65s ease-in-out 4; }
 @keyframes card-pisca { 0%, 100% { transform: none; } 50% { transform: scale(1.045); } }
 @keyframes card-flash { 0%, 100% { opacity: 0; } 50% { opacity: .75; } }
-.card.no-carrinho { box-shadow: 0 0 0 3px var(--lua) inset; }
-
-/* Boca da caverna: estalactites no teto, cristais no chão, gnomo no meio */
+/* Boca da caverna: estalactites no teto, cristais no chão */
 .boca {
-  position: relative; width: 100%; height: 215px; margin: 0; overflow: hidden;
+  --s: 1; position: relative; width: 100%; height: 215px; margin: 0; overflow: hidden;
   border-radius: 999px 999px 14px 14px; border: 3px solid color-mix(in srgb, var(--g2) 70%, #000);
   background: radial-gradient(ellipse at 50% 85%, color-mix(in srgb, var(--g1) 60%, transparent), transparent 62%), linear-gradient(#08030f, #2a1740 80%);
   box-shadow: inset 0 0 28px #000c;
@@ -245,30 +272,77 @@ html:not(.light-theme) .titulo-secao, html:not(.light-theme) .card-destaque > h2
   clip-path: polygon(0 100%, 0 70%, 6% 45%, 11% 100%, 18% 25%, 27% 100%, 36% 55%, 45% 100%, 55% 8%, 66% 100%, 75% 40%, 84% 100%, 91% 30%, 100% 65%, 100% 100%);
 }
 .card:hover .boca::after { transform: translateY(-5px); filter: brightness(1.4); }
-.boca img {
-  position: absolute; z-index: 4; left: 50%; bottom: 6px; height: 80%; width: auto;
-  transform: translateX(-50%); transform-origin: 50% 100%;
-}
+.destaque .boca { height: 170px; --s: .8; }
 html.light-theme .boca {
   background: radial-gradient(ellipse at 50% 85%, #fff3c4cc, transparent 62%), linear-gradient(#c9a7ff, #e6d9ff 80%);
   box-shadow: inset 0 0 22px #fff8;
 }
 html.light-theme .boca::before { background: linear-gradient(#b794e8, #6b3fa0); }
 
-/* Susto: no hover o gnomo pula para trás e treme */
-.card:hover .boca img, .card:focus-visible .boca img { animation: susto-pulo .55s cubic-bezier(.3, 1.4, .5, 1); }
+/* Cena: capa do livro + gnomo em pose própria */
+.cena .livro, .cena .duende { position: absolute; }
+.livro {
+  z-index: 3; left: 50%; bottom: calc(10px * var(--s)); height: calc(92px * var(--s)); width: auto;
+  transform: translateX(-50%); border-radius: 3px 8px 8px 3px; box-shadow: 0 8px 14px #000a, inset 4px 0 0 #0003;
+}
+.duende {
+  z-index: 4; left: 50%; bottom: calc(6px * var(--s)); width: calc(86px * var(--s)); height: calc(112px * var(--s));
+  transform: translateX(-50%); transform-origin: 50% 100%;
+}
+.corpo, .vivo { display: block; position: relative; width: 100%; height: 100%; transform-origin: 50% 100%; }
+.gnome { display: block; position: relative; z-index: 1; width: 100%; height: 100%; }
+.extras { position: absolute; inset: 0; z-index: 2; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+
+/* Poses: cada produto tem um gnomo em posição própria */
+.pose-cima .livro { left: 50%; }
+.pose-cima .duende { left: 50%; bottom: calc(103px * var(--s)); }             /* de pé no topo, no meio */
+.pose-apoiado .livro { left: 64%; height: calc(100px * var(--s)); }
+.pose-apoiado .duende { left: 34%; transform: translateX(-50%) rotate(12deg); } /* encostado no livro */
+.pose-lendo .livro { left: 14%; transform: none; height: calc(104px * var(--s)); }
+.pose-lendo .duende { left: 62%; }                                             /* lendo o livro aberto */
+.pose-embaixo .livro { bottom: calc(104px * var(--s)); height: calc(100px * var(--s)); }
+.pose-embaixo .duende { bottom: calc(-14px * var(--s)); z-index: 2; }        /* espia por baixo */
+.pose-espiando .livro { bottom: calc(4px * var(--s)); height: calc(104px * var(--s)); }
+.pose-espiando .duende { z-index: 1; bottom: calc(74px * var(--s)); }        /* espia por cima */
+.pose-deitado .livro { left: 12%; transform: none; height: calc(100px * var(--s)); }
+.pose-deitado .duende { left: 66%; bottom: calc(47px * var(--s)); transform: rotate(-90deg); }
+.pose-deitado .zzz { transform: rotate(90deg); }
+
+/* Susto: rosto muda, pula para trás e treme no hover */
+.susto { opacity: 0; transition: opacity .12s; }
+.grito {
+  position: absolute; z-index: 5; top: calc(-6px * var(--s)); right: calc(-16px * var(--s));
+  font: 900 calc(26px * var(--s))/1 'Uncial Antiqua', Georgia, serif; font-style: normal;
+  color: var(--lua); text-shadow: 0 0 6px #000, 0 0 10px var(--lilas);
+  opacity: 0; transform: scale(.3); transition: opacity .1s, transform .15s;
+}
+.zzz { position: absolute; z-index: 5; left: 60%; top: calc(-6px * var(--s)); display: flex; gap: 2px; }
+.zzz i { font: 700 calc(14px * var(--s))/1 Georgia, serif; font-style: normal; color: var(--lua); animation: zzz 2.4s ease-in-out infinite; }
+.zzz i:nth-child(2) { animation-delay: .8s; font-size: 1.25em; }
+.zzz i:nth-child(3) { animation-delay: 1.6s; font-size: 1.5em; }
+@keyframes zzz { 0% { opacity: 0; transform: translate(0, 0); } 40% { opacity: 1; } 100% { opacity: 0; transform: translate(10px, -18px); } }
+.card:hover .susto, .card:focus-visible .susto { opacity: 1; }
+.card:hover .grito, .card:focus-visible .grito { opacity: 1; transform: scale(1); }
+.card:hover .corpo, .card:focus-visible .corpo { animation: susto-pulo .55s cubic-bezier(.3, 1.4, .5, 1); }
+.card:hover .vivo, .card:focus-visible .vivo { animation: susto-treme .09s linear 6 .3s; }
 @keyframes susto-pulo {
-  0% { transform: translateX(-50%); } 30% { transform: translateX(-50%) translateY(-18px) rotate(-10deg) scaleY(1.06); }
-  60% { transform: translateX(-50%) rotate(4deg) scaleX(.95); } 80% { transform: translateX(-50%) rotate(-2deg); } 100% { transform: translateX(-50%); }
+  0% { transform: none; } 30% { transform: translateY(-18px) rotate(-10deg) scaleY(1.06); }
+  60% { transform: translateY(0) rotate(4deg) scaleX(.95); } 80% { transform: rotate(-2deg); } 100% { transform: none; }
+}
+@keyframes susto-treme {
+  0%, 100% { transform: translateX(0); } 25% { transform: translateX(-3px) rotate(-2deg); } 75% { transform: translateX(3px) rotate(2deg); }
 }
 
 /* Textos dos cards */
-.selo {
-  padding: 3px 14px; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
-  background: var(--lua); color: #2a1740; border-radius: 12px; margin-top: 4px;
-}
 .card h3 { font-size: 1.1rem; }
 .card p { font-size: .95rem; flex: 1; }
+.faixa {
+  padding: 3px 14px; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  background: var(--lua); color: #2a1740; border-radius: 0 0 12px 12px; margin-top: -22px; margin-bottom: 2px;
+  position: relative; z-index: 4;
+}
+.ver { font-weight: 700; font-size: .9rem; color: var(--g2); border-bottom: 2px dashed currentColor; padding-bottom: 1px; }
+html:not(.light-theme) .ver { color: var(--g1); }
 .comprar {
   padding: 11px 36px; border: 0; cursor: pointer; font-family: inherit; font-weight: 700; color: #fff;
   background: linear-gradient(135deg, var(--g2), color-mix(in srgb, var(--g2) 60%, #000));
@@ -413,15 +487,14 @@ html.light-theme .painel input { background: var(--superficie); }
 .painel.pensando .pensar { opacity: 1; transform: none; }
 .painel.pensando .gnomo-pequeno { animation: pensando 2.2s ease-in-out infinite; }
 
-/* Prévia: capa ao lado do botão */
 #areaPrevia {
   flex: 0 0 170px; min-height: 200px; display: grid; place-items: center;
   border: 2px dashed color-mix(in srgb, var(--a1) 60%, transparent); border-radius: 8px 18px 8px 18px;
 }
 #areaPrevia:empty::before { content: '✦'; font-size: 2rem; opacity: .35; }
-#imgPrevia { display: block; width: 140px; border-radius: 6px 14px 6px 14px; box-shadow: 0 0 22px color-mix(in srgb, var(--a1) 70%, transparent); animation: surgir .5s ease-out; }
+#areaPrevia img { display: block; width: 140px; border-radius: 6px 14px 6px 14px; box-shadow: 0 0 22px color-mix(in srgb, var(--a1) 70%, transparent); animation: surgir .5s ease-out; }
 
-/* Efeitos: faíscas e magias */
+/* Efeitos: faíscas, magias e gnomo carregando o card */
 .faisca {
   position: absolute; left: 72px; top: 100px; width: 9px; height: 14px; z-index: 3; pointer-events: none;
   background: var(--cor, var(--a1)); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
@@ -460,9 +533,70 @@ footer p { margin-top: 12px; font-size: .9rem; }
 @media (max-width: 480px) {
   .painel { flex-direction: column; align-items: center; }
   .painel > div:not(.halo):not(#areaPrevia) { width: 100%; }
-  #destaque { padding: 24px 16px; }
+  #destaque { padding: 0 44px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
-  .susto { transition: none !important; }
+  .susto, .grito { transition: none !important; }
+  .card.piscar::after { opacity: .45; }
 }
+
+/* Preço embaixo do nome, dentro da bolsa */
+.lista-carrinho .nome small { display: block; font-weight: 400; font-size: .9rem; color: var(--lua); margin-top: 2px; }
+html.light-theme .lista-carrinho .nome small { color: #6b3fa0; }
+
+/* ===== Menu hambúrguer (só celular): linhas de cristal que viram um X ===== */
+.MenuHamburguer {
+  display: none; position: relative; width: 48px; height: 48px; padding: 0; border: 0; cursor: pointer;
+  background: radial-gradient(circle, #b794e855, transparent 70%); border-radius: 50%;
+  transition: transform .3s;
+}
+.MenuHamburguer .linha {
+  position: absolute; left: 12px; width: 24px; height: 4px; border-radius: 2px;
+  background: linear-gradient(90deg, var(--roxo), var(--lilas) 50%, var(--lua));
+  box-shadow: 0 0 8px #b794e8aa;
+  clip-path: polygon(6px 0, calc(100% - 6px) 0, 100% 50%, calc(100% - 6px) 100%, 6px 100%, 0 50%);
+  transition: transform .4s cubic-bezier(.3, 1.4, .5, 1), opacity .25s, width .3s;
+}
+.MenuHamburguer .linha:nth-child(1) { top: 14px; animation: brilho 2.6s ease-in-out infinite; }
+.MenuHamburguer .linha:nth-child(2) { top: 22px; width: 16px; left: 16px; animation: brilho 2.6s ease-in-out .4s infinite; }
+.MenuHamburguer .linha:nth-child(3) { top: 30px; animation: brilho 2.6s ease-in-out .8s infinite; }
+@keyframes brilho { 0%, 100% { filter: brightness(1); } 50% { filter: brightness(1.6) drop-shadow(0 0 4px var(--lua)); } }
+.MenuHamburguer:hover { transform: rotate(-12deg) scale(1.08); }
+.MenuHamburguer:hover .linha:nth-child(2) { width: 24px; left: 12px; }
+.MenuHamburguer[aria-expanded="true"] .linha:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.MenuHamburguer[aria-expanded="true"] .linha:nth-child(2) { opacity: 0; transform: scaleX(.2); }
+.MenuHamburguer[aria-expanded="true"] .linha:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+.MenuHamburguer:focus-visible { outline: 3px solid var(--lua); outline-offset: 3px; }
+
+@media (max-width: 700px) {
+  .MenuHamburguer { display: block; margin-left: auto; }
+  nav {
+    display: none; position: absolute; left: 0; right: 0; top: 100%; z-index: 60;
+    flex-direction: column; align-items: stretch; gap: 14px; padding: 18px 22px 22px;
+    background: var(--cabecalho); border-bottom: 4px solid var(--lilas);
+    box-shadow: 0 16px 30px #0009; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  header.menu-aberto nav { display: flex; animation: descer .45s cubic-bezier(.3, 1.2, .5, 1); }
+  nav ul { flex-direction: column; gap: 12px; }
+  nav ul li { opacity: 0; animation: entrar .4s ease-out forwards; }
+  nav ul li:nth-child(2) { animation-delay: .08s; }
+  nav ul li:nth-child(3) { animation-delay: .16s; }
+  nav ul a { display: block; padding: 8px 12px; border-left: 4px solid var(--lilas); border-radius: 0 12px 12px 0; background: #ffffff10; font-weight: 700; }
+  nav > img { align-self: center; }
+  .darkMode { justify-content: center; }
+}
+@keyframes descer { from { opacity: 0; transform: translateY(-14px) scaleY(.7); transform-origin: top; } to { opacity: 1; transform: none; } }
+@keyframes entrar { from { opacity: 0; transform: translateX(-16px); } to { opacity: 1; transform: none; } }
+
+
+/* ===== Utilitários do JS (título animado do banner) ===== */
+
+/* Letras do título gravado no nome */
+.palavra { display: inline-block; white-space: nowrap; }
+.letra { display: inline-block; animation: surgir .45s ease-out both; }
+
+/* Rodapé: o HTML aponta para src/assets/gnomo1, gnomo2 e gnomo3 (sem extensão); o CSS troca pelos SVGs reais */
+.gnomos img:nth-child(1) { content: url("../assets/gnomo-1.svg"); }
+.gnomos img:nth-child(2) { content: url("../assets/gnomo-2.svg"); }
+.gnomos img:nth-child(3) { content: url("../assets/gnomo-3.svg"); }

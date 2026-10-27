@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 320" width="240" height="320">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1f6f86"/><stop offset="1" stop-color="#0b2b3a"/></linearGradient></defs>
+<rect width="240" height="320" rx="10" fill="url(#g)"/>
+<rect x="8" y="8" width="224" height="304" rx="6" fill="none" stroke="#9fefe9" stroke-width="1.5" opacity=".55"/>
+<rect width="16" height="320" rx="4" fill="#000" opacity=".28"/><rect x="16" width="2" height="320" fill="#fff" opacity=".18"/>
+<text x="130" y="48" text-anchor="middle" fill="#f3ead7" font-family="Georgia,serif" font-size="25" font-weight="700">Poções</text>
+<text x="130" y="76" text-anchor="middle" fill="#f3ead7" font-family="Georgia,serif" font-size="25" font-weight="700">de CSS</text>
+<g transform="translate(10 0)"><path d="M104 118h32v26l32 62q6 16-10 16H82q-16 0-10-16l32-62z" fill="#9fefe9" opacity=".25" stroke="#9fefe9" stroke-width="3" stroke-linejoin="round"/>
+<path d="M88 190h64l16 30q4 12-8 12H80q-12 0-8-12z" fill="#b794e8"/>
+<circle cx="108" cy="204" r="5" fill="#fff8"/><circle cx="130" cy="214" r="3.5" fill="#fff8"/><circle cx="120" cy="196" r="2.5" fill="#fff8"/>
+<rect x="100" y="108" width="40" height="12" rx="3" fill="#6b4a32"/>
+<text x="120" y="172" text-anchor="middle" font-family="Consolas,monospace" font-size="30" font-weight="700" fill="#f3ead7">{ }</text>
+<circle cx="146" cy="96" r="5" fill="#9fefe9" opacity=".7"/><circle cx="96" cy="84" r="3.5" fill="#9fefe9" opacity=".7"/></g>
+<text x="130" y="302" text-anchor="middle" fill="#9fefe9" font-family="Georgia,serif" font-style="italic" font-size="12">Receitas de estilo</text>
+</svg>

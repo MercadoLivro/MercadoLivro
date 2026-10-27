@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 320" width="240" height="320">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2f6b3a"/><stop offset="1" stop-color="#0d2414"/></linearGradient></defs>
+<rect width="240" height="320" rx="10" fill="url(#g)"/>
+<rect x="8" y="8" width="224" height="304" rx="6" fill="none" stroke="#9bdc8a" stroke-width="1.5" opacity=".55"/>
+<rect width="16" height="320" rx="4" fill="#000" opacity=".28"/><rect x="16" width="2" height="320" fill="#fff" opacity=".18"/>
+<text x="130" y="48" text-anchor="middle" fill="#f3ead7" font-family="Georgia,serif" font-size="25" font-weight="700">Kit Cristal</text>
+<text x="130" y="76" text-anchor="middle" fill="#f3ead7" font-family="Georgia,serif" font-size="25" font-weight="700">do Dev</text>
+<g transform="translate(10 0)"><rect x="62" y="104" width="116" height="86" rx="8" fill="#08030f" stroke="#9bdc8a" stroke-width="3"/>
+<rect x="62" y="104" width="116" height="16" rx="8" fill="#9bdc8a"/><circle cx="74" cy="112" r="3" fill="#2f6b3a"/><circle cx="85" cy="112" r="3" fill="#2f6b3a"/>
+<text x="74" y="146" font-family="Consolas,monospace" font-size="18" font-weight="700" fill="#9bdc8a">&gt; npm i</text>
+<text x="74" y="170" font-family="Consolas,monospace" font-size="18" font-weight="700" fill="#f6e7a8">&gt; _</text>
+<polygon points="120,204 138,220 130,246 110,246 102,220" fill="#9bdc8a"/><polygon points="120,204 138,220 120,226 102,220" fill="#fff" opacity=".6"/></g>
+<text x="130" y="302" text-anchor="middle" fill="#9bdc8a" font-family="Georgia,serif" font-style="italic" font-size="12">Ferramentas do dev</text>
+</svg>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/css/estilo.css">
+    <title>Mercado Livro</title>
+</head>
+<body>
+    <header>
+        <article>
+            <img src="src/assets/logo.svg" alt="Logotipo MercadoLivro" width="48" height="48">
+            <span>MercadoLivro</span>
+        </article>
+
+        <div class="pesquisa">
+            <input type="text" name="pesquisa" id="pesquisa" placeholder="Busque um livro ou tecnologia">
+            <button type="submit">Buscar</button>
+        </div>
+
+        <button type="button" class="MenuHamburguer" id="MenuHamburguer" aria-label="Abrir menu" aria-expanded="false" aria-controls="Navegacao">
+            <span class="linha"></span><span class="linha"></span><span class="linha"></span>
+        </button>
+
+        <nav id="Navegacao">
+            <ul>
+                <li><a href="">Crie sua Conta</a></li>
+                <li><a href="">Entre</a></li>
+                <li><a href="">Compras</a></li>
+            </ul>
+
+            <img src="src/assets/carrinho-carrinho.png" alt="Carrinho">
+
+            <div class="darkMode">
+                <input type="checkbox" id="dark" class="check">
+                <label for="dark" class="theme-label" title="Alternar tema"></label>
+            </div>
+
+        </nav>
+        <div class="cortina" id="loja-fundo"></div>
+        <aside class="aba-carrinho vazio" id="loja-painel" aria-label="Sua bolsa" aria-hidden="true" inert>
+            <div class="aba-topo">
+                <h2>Sua bolsa</h2>
+                <button type="button" class="fechar" id="loja-fechar" aria-label="Fechar">✕</button>
+            </div>
+            <div class="aba-vazia" id="loja-vazia">
+                <img src="src/assets/logo-gnomos.jpg" alt="">
+                <p>Sua bolsa está vazia.</p>
+                <small>Escolha um tesouro e um gnomo leva até aqui.</small>
+            </div>
+            <ul class="lista-carrinho" id="loja-lista"></ul>
+            <div class="aba-rodape">
+                <span>Total <b id="loja-total">R$ 0,00</b></span>
+                <button type="button" id="loja-limpar">Esvaziar bolsa</button>
+            </div>
+        </aside>
+    </header>
+    <main>
+        <section class="banner">
+            <article class="content-banner">
+                <h2>Bem-Vindo(a) ao <br> MercadoLivro</h2>
+                <p>Livros, cursos e ferramentas de programaçao, guardados pelos <br> gnomos do bosque</p>
+                <button>Ver a coleção</button>
+            </article>
+
+            <article class="gnomo1">
+                <img src="src/assets/gnomo-1.svg" alt="gnomo1">
+            </article>
+
+            <article class="gnomo1">
+                <img src="src/assets/gnomo-2.svg" alt="gnomo2">
+            </article>
+
+            <article class="gnomo1">
+                <img src="src/assets/gnomo-3.svg" alt="gnomo3">
+            </article>
+        </section>
+
+        <img class="divisor" src="src/assets/divisor-figma.svg" alt="">
+    
+        <section class="card-destaque">
+            <h2>Produtos em destaque</h2>
+            <article id="destaque">
+                <button type="button" class="seta seta-ant" id="SetaAnterior" aria-label="Produto anterior">‹</button>
+
+                <div id="VitrineDestaque">
+                    <article class="card destaque k-quartzo ativo">
+                        <figure class="boca cena pose-cima">
+                            <img class="livro" src="src/assets/capa-html.svg" alt="Capa do livro Grimório do HTML">
+                            <span class="duende">
+                                <span class="corpo">
+                                    <span class="vivo">
+                                        <img class="gnome" src="src/assets/gnomo-1.svg" alt="Gnomo guardião de Grimório do HTML">
+                                        <svg class="extras" viewBox="0 0 200 260" aria-hidden="true">
+                                            <g class="susto">
+                                                <circle cx="88" cy="122" r="5.6" fill="#fff"/>
+                                                <circle cx="112" cy="122" r="5.6" fill="#fff"/>
+                                                <circle cx="88.6" cy="122.6" r="2" fill="#2a1740"/>
+                                                <circle cx="111.4" cy="122.6" r="2" fill="#2a1740"/>
+                                                <ellipse cx="100" cy="146" rx="5.5" ry="7" fill="#3b1a2a"/>
+                                                <path d="M137 124q6 9 0 13q-6-4 0-13z" fill="#9fefe9" stroke="#1f6f86" stroke-width="1.2"/>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </span>
+                                <i class="grito" aria-hidden="true">!</i>
+                            </span>
+                        </figure>
+                        <span class="faixa">★ Destaque</span>
+                        <h3>Grimório do HTML</h3>
+                        <p>Estrutura semântica para quem quer construir páginas sólidas como raízes.</p>
+                        <span class="ver">Ver na coleção ↓</span>
+                    </article>
+
+                    <article class="card destaque k-agua">
+                        <figure class="boca cena pose-apoiado">
+                            <img class="livro" src="src/assets/capa-css.svg" alt="Capa do livro Poções de CSS">
+                            <span class="duende">
+                                <span class="corpo">
+                                    <span class="vivo">
+                                        <img class="gnome" src="src/assets/gnomo-2.svg" alt="Gnomo guardião de Poções de CSS">
+                                        <svg class="extras" viewBox="0 0 200 260" aria-hidden="true">
+                                            <g class="susto">
+                                                <circle cx="88" cy="122" r="5.6" fill="#fff"/>
+                                                <circle cx="112" cy="122" r="5.6" fill="#fff"/>
+                                                <circle cx="88.6" cy="122.6" r="2" fill="#2a1740"/>
+                                                <circle cx="111.4" cy="122.6" r="2" fill="#2a1740"/>
+                                                <ellipse cx="100" cy="146" rx="5.5" ry="7" fill="#3b1a2a"/>
+                                                <path d="M137 124q6 9 0 13q-6-4 0-13z" fill="#9fefe9" stroke="#1f6f86" stroke-width="1.2"/>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </span>
+                                <i class="grito" aria-hidden="true">!</i>
+                            </span>
+                        </figure>
+                        <span class="faixa">★ Destaque</span>
+                        <h3>Poções de CSS</h3>
+                        <p>Flexbox, Grid e Dark Mode em receitas curtas e fáceis de misturar.</p>
+                        <span class="ver">Ver na coleção ↓</span>
+                    </article>
+
+                    <article class="card destaque k-citrino">
+                        <figure class="boca cena pose-lendo">
+                            <img class="livro" src="src/assets/capa-js.svg" alt="Capa do livro JavaScript Encantado">
+                            <span class="duende">
+                                <span class="corpo">
+                                    <span class="vivo">
+                                        <img class="gnome" src="src/assets/gnomo-3.svg" alt="Gnomo guardião de JavaScript Encantado">
+                                        <svg class="extras" viewBox="0 0 200 260" aria-hidden="true">
+                                            <g class="adereco">
+                                                <path d="M54 188V222Q80 214 106 224Q132 214 158 222V188Z" fill="#7a4bb8"/>
+                                                <path d="M106 192Q82 182 58 190V218Q82 211 106 221Z" fill="#f3ead7"/>
+                                                <path d="M106 192Q130 182 154 190V218Q130 211 106 221Z" fill="#e8dcc2"/>
+                                                <path d="M106 192V221" stroke="#0003" stroke-width="2"/>
+                                                <circle cx="62" cy="214" r="8" fill="#e8b89a"/>
+                                                <circle cx="150" cy="214" r="8" fill="#e8b89a"/>
+                                            </g>
+                                            <g class="susto">
+                                                <circle cx="88" cy="122" r="5.6" fill="#fff"/>
+                                                <circle cx="112" cy="122" r="5.6" fill="#fff"/>
+                                                <circle cx="88.6" cy="122.6" r="2" fill="#2a1740"/>
+                                                <circle cx="111.4" cy="122.6" r="2" fill="#2a1740"/>
+                                                <ellipse cx="100" cy="146" rx="5.5" ry="7" fill="#3b1a2a"/>
+                                                <path d="M137 124q6 9 0 13q-6-4 0-13z" fill="#9fefe9" stroke="#1f6f86" stroke-width="1.2"/>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </span>
+                                <i class="grito" aria-hidden="true">!</i>
+                            </span>
+                        </figure>
+                        <span class="faixa">★ Destaque</span>
+                        <h3>JavaScript Encantado</h3>
+                        <p>DOM e eventos para dar vida a qualquer página parada.</p>
+                        <span class="ver">Ver na coleção ↓</span>
+                    </article>
+                </div>
+                <button type="button" class="seta seta-prox" id="SetaProxima" aria-label="Próximo produto">›</button>
+            </article>
+            <div class="pontos" id="PontosDestaque"></div>
+        </section>
+
+        <img class="divisor" src="src/assets/divisor-figma.svg" alt="">
+    
+        <section class="card-produtos">
+            <article class="card k-quartzo">
+                <figure class="boca cena pose-cima"><img class="livro" src="src/assets/capa-html.svg" alt="Capa do livro Grimório do HTML"><span class="duende"><span class="corpo"><span class="vivo"><img class="gnome" src="src/assets/gnomo-1.svg" alt="Gnomo guardião de Grimório do HTML"><svg class="extras" viewBox="0 0 200 260" aria-hidden="true"><g class="susto"><circle cx="88" cy="122" r="5.6" fill="#fff"/><circle cx="112" cy="122" r="5.6" fill="#fff"/><circle cx="88.6" cy="122.6" r="2" fill="#2a1740"/><circle cx="111.4" cy="122.6" r="2" fill="#2a1740"/><ellipse cx="100" cy="146" rx="5.5" ry="7" fill="#3b1a2a"/><path d="M137 124q6 9 0 13q-6-4 0-13z" fill="#9fefe9" stroke="#1f6f86" stroke-width="1.2"/></g></svg></span></span><i class="grito" aria-hidden="true">!</i></span></figure>
+                <h3>Grimório do HTML</h3>
+                <p>Estrutura semântica para quem quer construir páginas sólidas como raízes.</p>
+                <span class="preco">R$ 59,90</span>
+                <button class="comprar">Comprar</button>
+            </article>
+            <article class="card k-agua">
+                <figure class="boca cena pose-apoiado"><img class="livro" src="src/assets/capa-css.svg" alt="Capa do livro Poções de CSS"><span class="duende"><span class="corpo"><span class="vivo"><img class="gnome" src="src/assets/gnomo-2.svg" alt="Gnomo guardião de Poções de CSS"><svg class="extras" viewBox="0 0 200 260" aria-hidden="true"><g class="susto"><circle cx="88" cy="122" r="5.6" fill="#fff"/><circle cx="112" cy="122" r="5.6" fill="#fff"/><circle cx="88.6" cy="122.6" r="2" fill="#2a1740"/><circle cx="111.4" cy="122.6" r="2" fill="#2a1740"/><ellipse cx="100" cy="146" rx="5.5" ry="7" fill="#3b1a2a"/><path d="M137 124q6 9 0 13q-6-4 0-13z" fill="#9fefe9" stroke="#1f6f86" stroke-width="1.2"/></g></svg></span></span><i class="grito" aria-hidden="true">!</i></span></figure>
+                <h3>Poções de CSS</h3>
+                <p>Flexbox, Grid e Dark Mode em receitas curtas e fáceis de misturar.</p>
+                <span class="preco">R$ 69,90</span>
+                <button class="comprar">Comprar</button>
+            </article>
+            <article class="card k-citrino">
+                <figure class="boca cena pose-lendo"><img class="livro" src="src/assets/capa-js.svg" alt="Capa do livro JavaScript Encantado"><span class="duende"><span class="corpo"><span class="vivo"><img class="gnome" src="src/assets/gnomo-3.svg" alt="Gnomo guardião de JavaScript Encantado"><svg class="extras" viewBox="0 0 200 260" aria-hidden="true"><g class="adereco"><path d="M54 188V222Q80 214 106 224Q132 214 158 222V188Z" fill="#7a4bb8"/><path d="M106 192Q82 182 58 190V218Q82 211 106 221Z" fill="#f3ead7"/><path d="M106 192Q130 182 154 190V218Q130 211 106 221Z" fill="#e8dcc2"/><path d="M106 192V221" stroke="#0003" stroke-width="2"/><circle cx="62" cy="214" r="8" fill="#e8b89a"/><circle cx="150" cy="214" r="8" fill="#e8b89a"/></g><g class="susto"><circle cx="88" cy="122" r="5.6" fill="#fff"/><circle cx="112" cy="122" r="5.6" fill="#fff"/><circle cx="88.6" cy="122.6" r="2" fill="#2a1740"/><circle cx="111.4" cy="122.6" r="2" fill="#2a1740"/><ellipse cx="100" cy="146" rx="5.5" ry="7" fill="#3b1a2a"/><path d="M137 124q6 9 0 13q-6-4 0-13z" fill="#9fefe9" stroke="#1f6f86" stroke-width="1.2"/></g></svg></span></span><i class="grito" aria-hidden="true">!</i></span></figure>
+                <h3>JavaScript Encantado</h3>
+                <p>DOM e eventos para dar vida a qualquer página parada.</p>
+                <span class="preco">R$ 79,90</span>
+                <button class="comprar">Comprar</button>
+            </article>
+            <article class="card k-esmeralda">
+                <figure class="boca cena pose-embaixo"><img class="livro" src="src/assets/capa-terminal.svg" alt="Capa do livro Kit Cristal do Dev"><span class="duende"><span class="corpo"><span class="vivo"><img class="gnome" src="src/assets/gnomo-4.svg" alt="Gnomo guardião de Kit Cristal do Dev"><svg class="extras" viewBox="0 0 200 260" aria-hidden="true"><g class="susto"><circle cx="88" cy="122" r="5.6" fill="#fff"/><circle cx="112" cy="122" r="5.6" fill="#fff"/><circle cx="88.6" cy="122.6" r="2" fill="#2a1740"/><circle cx="111.4" cy="122.6" r="2" fill="#2a1740"/><ellipse cx="100" cy="146" rx="5.5" ry="7" fill="#3b1a2a"/><path d="M137 124q6 9 0 13q-6-4 0-13z" fill="#9fefe9" stroke="#1f6f86" stroke-width="1.2"/></g></svg></span></span><i class="grito" aria-hidden="true">!</i></span></figure>
+                <h3>Kit Cristal do Dev</h3>
+                <p>Editor, terminal e extensões reunidos em um único kit.</p>
+                <span class="preco">R$ 129,90</span>
+                <button class="comprar">Comprar</button>
+            </article>
+            <article class="card k-ambar">
+                <figure class="boca cena pose-espiando"><img class="livro" src="src/assets/capa-git.svg" alt="Capa do livro Curso Raiz de Git"><span class="duende"><span class="corpo"><span class="vivo"><img class="gnome" src="src/assets/gnomo-5.svg" alt="Gnomo guardião de Curso Raiz de Git"><svg class="extras" viewBox="0 0 200 260" aria-hidden="true"><g class="susto"><circle cx="88" cy="122" r="5.6" fill="#fff"/><circle cx="112" cy="122" r="5.6" fill="#fff"/><circle cx="88.6" cy="122.6" r="2" fill="#2a1740"/><circle cx="111.4" cy="122.6" r="2" fill="#2a1740"/><ellipse cx="100" cy="146" rx="5.5" ry="7" fill="#3b1a2a"/><path d="M137 124q6 9 0 13q-6-4 0-13z" fill="#9fefe9" stroke="#1f6f86" stroke-width="1.2"/></g></svg></span></span><i class="grito" aria-hidden="true">!</i></span></figure>
+                <h3>Curso Raiz de Git</h3>
+                <p>Branches, commits e Pull Requests sem medo de se perder na floresta.</p>
+                <span class="preco">R$ 89,90</span>
+                <button class="comprar">Comprar</button>
+            </article>
+            <article class="card k-opala">
+                <figure class="boca cena pose-deitado"><img class="livro" src="src/assets/capa-pr.svg" alt="Capa do livro E-book: Pull Request Mágico"><span class="duende"><span class="corpo"><span class="vivo"><img class="gnome" src="src/assets/gnomo-6.svg" alt="Gnomo guardião de E-book: Pull Request Mágico"><svg class="extras" viewBox="0 0 200 260" aria-hidden="true"><g class="susto"><circle cx="88" cy="122" r="5.6" fill="#fff"/><circle cx="112" cy="122" r="5.6" fill="#fff"/><circle cx="88.6" cy="122.6" r="2" fill="#2a1740"/><circle cx="111.4" cy="122.6" r="2" fill="#2a1740"/><ellipse cx="100" cy="146" rx="5.5" ry="7" fill="#3b1a2a"/><path d="M137 124q6 9 0 13q-6-4 0-13z" fill="#9fefe9" stroke="#1f6f86" stroke-width="1.2"/></g></svg></span></span><i class="grito" aria-hidden="true">!</i></span><span class="zzz" aria-hidden="true"><i>z</i><i>z</i><i>Z</i></span></figure>
+                <h3>E-book: Pull Request Mágico</h3>
+                <p>Do Code Review ao merge, o caminho completo do trabalho em equipe.</p>
+                <span class="preco">R$ 39,90</span>
+                <button class="comprar">Comprar</button>
+            </article>
+        </section>
+
+        <img class="divisor" src="src/assets/divisor-figma.svg" alt="">
+
+        <h2 class="titulo-secao">Cantinho dos gnomos</h2>
+        <section class="interativos">
+
+        <div class="painel p-perfil">
+            <i class="cristal c1" aria-hidden="true"></i><i class="cristal c2" aria-hidden="true"></i><i class="cristal c3" aria-hidden="true"></i>
+
+            <div class="halo"><img class="gnomo-pequeno" src="src/assets/gnomo-3.svg" alt="Gnomo recepcionista"></div>
+            <div>
+                <h3>Seu perfil</h3>
+
+                <label class="runa" for="nome"><input type="text" id="nome" placeholder="Digite seu nome" maxlength="18" autocomplete="off"></label>
+
+                <div id="gemas" class="gemas" aria-hidden="true"></div>
+                <button id="btnNome">Gravar na caverna</button>
+                <p id="resultadoNome" class="resultado"></p>
+            </div>
+        </div>
+
+        <div class="painel p-top">
+            <i class="cristal c1" aria-hidden="true"></i><i class="cristal c2" aria-hidden="true"></i><i class="cristal c3" aria-hidden="true"></i>
+            <div class="halo"><img class="gnomo-pequeno" src="src/assets/gnomo-6.svg" alt="Gnomo bibliotecário"></div>
+
+            <div>
+                <h3>Mais vendidos do mês</h3>
+                <input type="text" id="livroTop" placeholder="Nome do livro">
+                <input type="number" id="posTop" min="1" max="3" placeholder="Posição (1 a 3)">
+                <button id="btnTop">Atualizar vitrine</button>
+
+                <ol id="listaTop">
+                    <li>Grimório do HTML</li>
+                    <li>Poções de CSS</li>
+                    <li>JavaScript Encantado</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="painel p-mes">
+            <i class="cristal c1" aria-hidden="true"></i><i class="cristal c2" aria-hidden="true"></i><i class="cristal c3" aria-hidden="true"></i>
+            <div class="halo"><span class="pensar" aria-hidden="true"><i></i><i></i><i></i></span><img class="gnomo-pequeno" src="src/assets/gnomo-4.svg" alt="Gnomo do calendário"></div>
+
+            <div>
+                <h3>Lançamentos</h3>
+                <p class="dica">Digite o número do mês (1 a 12)</p>
+                <input type="number" id="mes" min="1" max="12" placeholder="Ex: 5">
+                <button id="btnMes">Ver lançamento</button>
+                <p id="resultadoMes" class="resultado"></p>
+            </div>
+        </div>
+
+        <div class="painel p-previa">
+            <i class="cristal c1" aria-hidden="true"></i><i class="cristal c2" aria-hidden="true"></i><i class="cristal c3" aria-hidden="true"></i>
+            <div class="halo"><img class="gnomo-pequeno" src="src/assets/gnomo-2.svg" alt="Gnomo do e-reader"></div>
+
+            <div>
+                <h3>Prévia do livro</h3>
+                <button id="btnPrevia">Gerar Prévia do Livro</button>
+                <p id="msgPrevia" class="resultado"></p>
+            </div>
+            <div id="areaPrevia" aria-live="polite"></div>
+        </div>
+
+        </section>
+    </main>
+
+    <img class="divisor" src="src/assets/divisor-figma.svg" alt="">
+
+    <footer>
+        <div class="gnomos">
+            <img src="src/assets/gnomo1" alt="decoração do gnomo">
+            <img src="src/assets/gnomo2" alt="decoração do gnomo">
+            <img src="src/assets/gnomo3" alt="decoração do gnomo">
+        </div>
+
+        <p>&copy; MercadoLivro - A Livraria dos Desenvolvedores. Feito com a ajuda dos gnomos.</p>
+    </footer>
+    <script src="src/js/script.js"></script>
+</body>
+</html>

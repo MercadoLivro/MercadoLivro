@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 320" width="240" height="320">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4b2f78"/><stop offset="1" stop-color="#1c0f33"/></linearGradient></defs>
+<rect width="240" height="320" rx="10" fill="url(#g)"/>
+<rect x="8" y="8" width="224" height="304" rx="6" fill="none" stroke="#b794e8" stroke-width="1.5" opacity=".55"/>
+<rect width="16" height="320" rx="4" fill="#000" opacity=".28"/><rect x="16" width="2" height="320" fill="#fff" opacity=".18"/>
+<text x="130" y="48" text-anchor="middle" fill="#f6e7a8" font-family="Georgia,serif" font-size="25" font-weight="700">Grimório</text>
+<text x="130" y="76" text-anchor="middle" fill="#f6e7a8" font-family="Georgia,serif" font-size="25" font-weight="700">do HTML</text>
+<g transform="translate(10 0)"><path d="M120 238V170" stroke="#6b4a32" stroke-width="10" stroke-linecap="round"/>
+<path d="M120 200Q90 190 78 168M120 190Q150 180 164 160M120 215Q96 214 84 200" stroke="#6b4a32" stroke-width="5" fill="none" stroke-linecap="round"/>
+<circle cx="120" cy="140" r="46" fill="#4f7a3a"/><circle cx="92" cy="154" r="26" fill="#5f8f46"/><circle cx="150" cy="152" r="28" fill="#456b34"/>
+<text x="120" y="152" text-anchor="middle" font-family="Consolas,monospace" font-size="34" font-weight="700" fill="#f6e7a8">&lt;/&gt;</text></g>
+<text x="130" y="302" text-anchor="middle" fill="#b794e8" font-family="Georgia,serif" font-style="italic" font-size="12">Raízes da Web</text>
+</svg>

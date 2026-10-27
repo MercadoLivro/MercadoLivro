@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 320" width="240" height="320">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7a4bb8"/><stop offset="1" stop-color="#2a1740"/></linearGradient></defs>
+<rect width="240" height="320" rx="10" fill="url(#g)"/>
+<rect x="8" y="8" width="224" height="304" rx="6" fill="none" stroke="#f3ead7" stroke-width="1.5" opacity=".55"/>
+<rect width="16" height="320" rx="4" fill="#000" opacity=".28"/><rect x="16" width="2" height="320" fill="#fff" opacity=".18"/>
+<text x="130" y="48" text-anchor="middle" fill="#9bdc8a" font-family="Georgia,serif" font-size="22" font-weight="700">E-book: Pull</text>
+<text x="130" y="76" text-anchor="middle" fill="#9bdc8a" font-family="Georgia,serif" font-size="22" font-weight="700">Request Mágico</text>
+<g transform="translate(10 0)"><circle cx="86" cy="130" r="11" fill="none" stroke="#f3ead7" stroke-width="5"/><circle cx="86" cy="230" r="11" fill="none" stroke="#f3ead7" stroke-width="5"/><circle cx="160" cy="130" r="11" fill="none" stroke="#9bdc8a" stroke-width="5"/>
+<path d="M86 141V219" stroke="#f3ead7" stroke-width="5" stroke-linecap="round"/>
+<path d="M160 141V170Q160 196 134 198H112" stroke="#9bdc8a" stroke-width="5" fill="none" stroke-linecap="round"/>
+<path d="M118 188l-14 10 14 10" stroke="#9bdc8a" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="120,92 126,104 140,106 130,115 133,129 120,122 107,129 110,115 100,106 114,104" fill="#f6e7a8" transform="translate(0 -6) scale(.9) translate(13 6)"/></g>
+<text x="130" y="302" text-anchor="middle" fill="#f3ead7" font-family="Georgia,serif" font-style="italic" font-size="12">Do review ao merge</text>
+</svg>

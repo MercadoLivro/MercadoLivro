@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 320" width="240" height="320">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a86a0c"/><stop offset="1" stop-color="#3b2410"/></linearGradient></defs>
+<rect width="240" height="320" rx="10" fill="url(#g)"/>
+<rect x="8" y="8" width="224" height="304" rx="6" fill="none" stroke="#f6e7a8" stroke-width="1.5" opacity=".55"/>
+<rect width="16" height="320" rx="4" fill="#000" opacity=".28"/><rect x="16" width="2" height="320" fill="#fff" opacity=".18"/>
+<text x="130" y="48" text-anchor="middle" fill="#fff" font-family="Georgia,serif" font-size="25" font-weight="700">JavaScript</text>
+<text x="130" y="76" text-anchor="middle" fill="#fff" font-family="Georgia,serif" font-size="25" font-weight="700">Encantado</text>
+<g transform="translate(10 0)"><polygon points="132,96 94,156 118,156 106,214 150,142 124,142" fill="#f6e7a8" stroke="#fff" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="76" cy="120" r="3" fill="#fff"/><circle cx="168" cy="190" r="4" fill="#fff"/><circle cx="160" cy="112" r="2.5" fill="#fff"/>
+<path d="M60 200l6 6-6 6-6-6z" fill="#f6e7a8"/><path d="M176 140l5 5-5 5-5-5z" fill="#f6e7a8"/>
+<text x="120" y="236" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="22" fill="#f3ead7">JS</text></g>
+<text x="130" y="302" text-anchor="middle" fill="#f6e7a8" font-family="Georgia,serif" font-style="italic" font-size="12">DOM e eventos</text>
+</svg>

@@ -11,6 +11,13 @@ Uma loja virtual mágica de livros, feita com **HTML, CSS e JavaScript** puros, 
 
 ---
 
+## 🗺️ Como entrar na caverna
+
+1. 🍄 Acesse o site https://mercadolivro.github.io/MercadoLivro/
+2. ✨ Explore, busque, escolha seus tesouros e deixe os gnomos trabalharem
+
+---
+
 ## ✨ Poderes da caverna
 
 | 🔮 Encantamento | 🪄 O que faz |
@@ -19,19 +26,10 @@ Uma loja virtual mágica de livros, feita com **HTML, CSS e JavaScript** puros, 
 | 🔍 **Busca mágica** | Procura livros e tecnologias, aceita Enter e avisa quando nada é encontrado |
 | 🎠 **Produtos em destaque** | Carrossel com rotação automática, setas e pontinhos brilhantes |
 | 🎒 **Bolsa de compras** | Total em tempo real, esvaziar tudo e um gnomo que leva o livro até você |
-| 💰 **Preços aleatórios** | Cada tesouro ganha um preço novo a cada vez que a caverna acorda |
 | 🧝 **Perfil** | Grave seu nome na caverna |
 | 🏆 **Mais vendidos do mês** | Monte o seu pódio de três posições |
 | 📅 **Lançamentos** | Um gnomo pensa enquanto você digita o mês |
 | 📜 **Prévia do livro** | Uma amostra do conteúdo antes de levar para casa |
-
----
-
-## 🗺️ Como entrar na caverna
-
-1. 🌱 Baixe ou clone este repositório
-2. 🍄 Abra o arquivo `index.html` no seu navegador
-3. ✨ Explore, busque, escolha seus tesouros e deixe os gnomos trabalharem
 
 ---
 
